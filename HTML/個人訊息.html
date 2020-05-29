@@ -62,29 +62,31 @@
                             alt="User picture">
                     </div>
                     <div class="user-info">
-                        <span class="user-name">Jhon Smith</span>    <!--USER name-->
-                        <span class="user-role">Administrator</span>  <!--MEMBER name-->
+                        <span class="user-name">USER NAME</span>
+                        <span class="user-role">USER ACCOUNT</span>
                     </div>
+
                 </div>
+                <hr style="background-color: rgb(182, 181, 181);">
                 <!-- sidebar-menu  -->
                 <div class="sidebar-menu">
                     <ul>
                         <li class="header-menu">
                             <span>選單</span>
                         </li>
-                        <li class="sidebar-dropdown">
+                        <li>
                             <a href="個人訊息.html">
                                 <i class="far fa-gem"></i>
                                 <span>個人訊息</span>
                             </a>
                         </li>
-                        <li class="sidebar-dropdown">
+                        <li>
                             <a href="個人訊息_觀看紀錄.html">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>觀看紀錄</span>
                             </a>
                         </li>
-                        <li class="sidebar-dropdown">
+                        <li>
                             <a href="個人訊息_我的評論.html">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>我的評論</span>
@@ -99,51 +101,28 @@
             <div class="container-fluid">
                 <h2>個人訊息</h2>
                 <hr style="background-color: rgb(182, 181, 181);">
-                <div class="row">
-                    <div class="form-group col-md-12">
-                        <p>This is a responsive sidebar template with dropdown menu based on bootstrap 4 framework.</p>
-                        <p> You can find the complete code on</p>
-                    </div>
-                    
-                    <div class="form-group col-md-12">
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">New !</h4>
-                            <p>New react library is now available, have a look : <a
-                                    href="https://github.com/azouaoui-med/react-pro-sidebar" target="_blank">
-                                    React pro sidebar</a></p>
-                        </div>
-                    </div>
-                </div>
-                <h5>More templates</h5>
-                <hr style="background-color: rgb(182, 181, 181);">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                        <div class="card rounded-0 p-0 shadow-sm">
-                            <img src="https://user-images.githubusercontent.com/25878302/58369568-a49b2480-7efc-11e9-9ca9-2be44afacda1.png"
-                                class="card-img-top rounded-0" alt="Angular pro sidebar">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Angular Pro Sidebar</h6>
-                                <a href="https://github.com/azouaoui-med/angular-pro-sidebar" target="_blank"
-                                    class="btn btn-primary btn-sm">Github</a>
-                                <a href="https://azouaoui-med.github.io/angular-pro-sidebar/demo/" target="_blank"
-                                    class="btn btn-success btn-sm">Preview</a>
+                <form action="../PHP/個人訊息.php">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <p>Name</p>
+                            <p>Ssn</p>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                                    <p>Gender</p>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                                    <p>Birth Date</p>
+                                </div>
                             </div>
+                            <p>Phone Number</p>
+                            <p>Address</p>
+                            <p>Email</p>
                         </div>
+                        <!----------------讀入USER MEMBER訊息---------------------->
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                        <div class="card rounded-0 p-0 shadow-sm">
-                            <img src="https://user-images.githubusercontent.com/25878302/58369258-33f20900-7ef8-11e9-8ff3-b277cb7ed7b4.PNG"
-                                class="card-img-top rounded-0" alt="Angular pro sidebar">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Angular Dashboard</h6>
-                                <a href="https://github.com/azouaoui-med/lightning-admin-angular" target="_blank"
-                                    class="btn btn-primary btn-sm">Github</a>
-                                <a href="https://azouaoui-med.github.io/lightning-admin-angular/demo/" target="_blank"
-                                    class="btn btn-success btn-sm">Preview</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                </form>
+
             </div>
         </main>
         <!-- page-content" -->
