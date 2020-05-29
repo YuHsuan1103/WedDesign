@@ -24,7 +24,6 @@
 </head>
 
 <body>
-    <!----------------------上方選單-------------------------->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <a href="#" class="navbar-brand">Projectxx2020</a>
         <button class="navbar-toggler" type="button" data-target="#navigation">
@@ -47,14 +46,18 @@
             </ul>
         </div>
     </nav>
-    <!--------------導覽列--------------->
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
             <i class="fas fa-bars"></i>
         </a>
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
-                <!-- sidebar-header  -->
+            <!--<div class="sidebar-brand">
+                    <a href="#">pro sidebar</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>-->
                 <div class="sidebar-header">
                     <div class="user-pic">
                         <img class="img-responsive img-rounded"
@@ -66,7 +69,20 @@
                         <span class="user-role">Administrator</span>  <!--MEMBER name-->
                     </div>
                 </div>
-                <!-- sidebar-menu  -->
+                <!-- sidebar-header  -->
+                <div class="sidebar-search">
+                    <div>
+                        <div class="input-group">
+                            <input type="text" class="form-control search-menu" placeholder="Search...">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sidebar-search  -->
                 <div class="sidebar-menu">
                     <ul>
                         <li class="header-menu">
@@ -82,22 +98,43 @@
                             <a href="個人訊息_觀看紀錄.html">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>觀看紀錄</span>
+                               <!-- <span class="badge badge-pill badge-warning">New</span>-->
                             </a>
                         </li>
                         <li class="sidebar-dropdown">
                             <a href="個人訊息_我的評論.html">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>我的評論</span>
+                                <!--<span class="badge badge-pill badge-danger">3</span>-->
                             </a>
                         </li>
                     </ul>
                 </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+            <div class="sidebar-footer">
+                <a href="#">
+                    <i class="fa fa-bell"></i>
+                    <span class="badge badge-pill badge-warning notification">3</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-envelope"></i>
+                    <span class="badge badge-pill badge-success notification">7</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-cog"></i>
+                    <span class="badge-sonar"></span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-power-off"></i>
+                </a>
             </div>
         </nav>
         <!-- sidebar-wrapper  -->
         <main class="page-content">
             <div class="container-fluid">
-                <h2>個人訊息</h2>
+                <h2>我的評論</h2>
                 <hr style="background-color: rgb(182, 181, 181);">
                 <div class="row">
                     <div class="form-group col-md-12">
@@ -145,6 +182,7 @@
                     </div>
                 </div>
             </div>
+
         </main>
         <!-- page-content" -->
     </div>
