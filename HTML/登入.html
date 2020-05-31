@@ -16,8 +16,12 @@
 
     <!--Custom styles-->
     <link rel="stylesheet" type="text/css" href="../CSS/css.css" />
-	<link rel="stylesheet" type="text/css" href="../CSS/登入.css">
-
+    <link rel="stylesheet" type="text/css" href="../CSS/登入.css">
+    <script>
+        function myFunction() {
+          alert("登入成功");
+        }
+        </script>
 </head>
 
 <body>
@@ -50,18 +54,18 @@
                     <h3>Sign In</h3>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form  action="../PHP/登入.php" method="POST">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="username"> 
+                            <input type="text" class="form-control" placeholder="username" name="username" required> 
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="password">
+                            <input type="password" class="form-control" placeholder="password" name="password" required>
                         </div>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Remember Me
@@ -70,6 +74,7 @@
                             <input type="submit" value="Login" class="btn float-right login_btn">
                         </div>
                     </form>
+                    
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
