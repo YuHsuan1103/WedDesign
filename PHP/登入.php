@@ -13,7 +13,7 @@ if ($name && $passowrd){//如果使用者名稱和密碼都不為空
         printf("<pre>HI %s</pre>", $row[0]);
         echo "
         <script>
-        setTimeout(function(){window.location.href='../HTML/個人訊息.html';},0000);
+        setTimeout(function(){window.location.href='個人訊息.php';},0000);
         </script>";
     } else {
         echo "

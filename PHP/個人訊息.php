@@ -19,7 +19,6 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../CSS/css.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/個人訊息.css" />
-
 </head>
 
 <body>
@@ -33,16 +32,16 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a href="#" class="nav-link">Home </a>
+                    <a href="../HTML/首頁.html" class="nav-link">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">登入 |</a>
+                    <a href="../HTML/登入.html" class="nav-link">登入 |</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link">搜尋 |</a>
+                    <a href="../HTML/搜尋.html" class="nav-link">搜尋 |</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">推薦 |</a>
+                    <a href="../HTML/推薦.html" class="nav-link">推薦 |</a>
                 </li>
             </ul>
         </div>
@@ -69,7 +68,7 @@
                     $con = create_connection();
                     $sql = "SELECT Fname, Lname, M_Account FROM member, user WHERE '$_SESSION[user]' = M_Account AND Ssn = M_Ssn";
                     $result = execute_sql($con, $sql);
-                    $size = 5;
+                    $size = 4;
                     $row = mysqli_fetch_assoc($result);
                     echo "<font><b>" . $row["Fname"]. " ". $row["Lname"]. "</b></font><br>" . $row["M_Account"]. "<br>";
                     ?>
@@ -89,13 +88,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="個人訊息_觀看紀錄.html">
+                            <a href="../HTML/個人訊息_觀看紀錄.html">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>觀看紀錄</span>
                             </a>
                         </li>
                         <li>
-                            <a href="個人訊息_我的評論.html">
+                            <a href="../HTML/個人訊息_我的評論.html">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>我的評論</span>
                             </a>
@@ -107,15 +106,14 @@
         <!-- sidebar-wrapper  -->
         <main class="page-content">
             <div class="container-fluid">
-                <h2>個人訊息</h2>
+                <h4>個人訊息</h4>
                 <hr style="background-color: rgb(182, 181, 181);">
-
                 <?php
                     $sql = "SELECT Fname, Lname, Ssn, Gender, B_Date, Pnumber, Address, Email 
                     FROM member, user WHERE '$_SESSION[user]' = M_Account AND Ssn = M_Ssn";
                     $result = execute_sql($con, $sql);
                 ?>
-                <form action="../PHP/個人訊息.php">
+                <form>
                     <div class="row">
                         <div class="form-group col-md-12">
                             <?php
@@ -167,42 +165,3 @@
 </body>
 
 </html>
-<?php
-/*$con=mysqli_connect("localhost","Sisia","Annie26468230","作業"); 
-if (mysqli_connect_errno($con)) 
-{ 
-    echo "连接 MySQL 失败: " . mysqli_connect_error(); 
-} 
-else {
-    echo "连接 MySQL 成功: "; 
-}
- 
-// 执行查询
-$sql = "SELECT * FROM user";
-mysqli_query($con, $sql);
-
-$result = mysqli_query($con, $sql);
-if ($result) {
-    $num = mysqli_num_rows($result);
-    echo "condb 資料表有 " . $num . " 筆資料<br>";
-}
-
-// --- 顯示資料 --- //
-
-echo "<br>顯示資料（MYSQLI_NUM，欄位數）：<br>";
-
-$result = mysqli_query($con, $sql);
-while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
-    printf("<pre>Name     %s %s</pre>", $row[1], $row[2]);
-    printf("<pre>Ssn      %s</pre>", $row[3]);
-    printf("<pre>Gender   %s</pre><br>", $row[6]);
-}
-$row = mysqli_fetch_array($result, MYSQLI_NUM);
-    printf("<pre>Name     %s %s</pre>", $row[1], $row[2]);
-    printf("<pre>Ssn      %s</pre>", $row[3]);
-    printf("<pre>Gender   %s</pre><br>", $row[6]);
-    
-// 釋放記憶體
-mysqli_free_result($result);
-mysqli_close($con);*/
-?>
