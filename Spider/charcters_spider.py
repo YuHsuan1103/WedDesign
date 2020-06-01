@@ -53,7 +53,6 @@ for j in titles1:
                         
             except:
                 conn.rollback() 
-
 conn.close()
     
 
