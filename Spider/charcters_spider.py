@@ -31,7 +31,7 @@ for j in titles1:
     for i in titles2:
         titles3 = i.get_text()
         print(titles3)
-        characters = root2.find_all('a', {'href': re.compile('ref_=tt_ov_dr')})
+        characters = root2.find_all('a', {'href': re.compile('ref_=tt_ov_st_sm')})
         for k in characters:
             name = k.get_text()
             print(name)
@@ -43,7 +43,7 @@ for j in titles1:
             charset='utf8',)   
             introduction = "NULL"
             cursor = conn.cursor()    
-            sql = "INSERT INTO director(Dname,Introduction,MovieTitle) VALUES('%s','%s','%s');"%(name,introduction,titles3)
+            sql = "INSERT INTO characters(C_MovieTitle,C_name,introduction) VALUES('%s','%s','%s');"%(titles3,name,introduction)
                 
             try :
                 cursor.execute(sql)
