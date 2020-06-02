@@ -1,5 +1,10 @@
 body {
     background: #222222e7;
+    margin:0px auto;
+}
+
+#blk {
+    display: none;
 }
 
 .navbar {

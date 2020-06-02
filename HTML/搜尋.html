@@ -11,8 +11,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/css.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/推薦.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/搜尋.css" />
-
 </head>
 
 <body>
@@ -40,11 +41,10 @@
     </nav>
     <section class="search-sec">
         <div class="container">
-            <form action="#" method="post" novalidate="novalidate">
+            <form action="../PHP/搜尋結果.php" method="post" novalidate="novalidate">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
-
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                 <select class="form-control search-slt" id="exampleFormControlSelect1">
                                     <option>Select</option>
@@ -54,10 +54,10 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <input type="text" class="form-control search-slt" placeholder="輸入關鍵字">
+                                <input type="text" class="form-control search-slt" placeholder="輸入關鍵字" name = "search">
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <button type="button" class="btn btn-danger wrn-btn" onclick="self.location.href='file:///D:/Projectxx2020/HTML/%E6%90%9C%E5%B0%8B.html'">Search</button>
+                                <button type="submit" class="btn btn-danger wrn-btn">Search</button>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,6 @@
             </form>
         </div>
     </section>
-
 </body>
 
 </html>
