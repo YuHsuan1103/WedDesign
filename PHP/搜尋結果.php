@@ -45,7 +45,6 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
-
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                 <select class="form-control search-slt" id="exampleFormControlSelect1">
                                     <option>Select</option>
@@ -76,10 +75,8 @@
     $search = $_POST['search'];
     $sql_insert = "INSERT INTO search VALUES ('$search', '$_SESSION[user]')";
     $sql = "SELECT MovieTitle, Classification, Introduction FROM movie WHERE MovieTitle LIKE '%$search%'";
-    #$sql2 = sprintf("select * FROM movie WHERE MovieTitle ='1917'");
     $result = execute_sql($con, $sql);
     $result_insert = execute_sql($con, $sql_insert);
-   # $result_img = execute_sql($con, $sql2);
     ?>
         <div class="col-sm-9 container">
             <div class="bs-calltoaction bs-calltoaction-default">
@@ -88,12 +85,9 @@
                         <div class="cta-desc">
                         <?php
                         if($row = mysqli_fetch_assoc($result)){
-                            printf("<h2 class=\"cta-title\">%s</h2>", $row['MovieTitle']);
+                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
                             printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
-                            #if($row2 = mysqli_fetch_assoc($result_img)) {    
-                             #   header('Content-type: image/jpeg');    
-                              #  print $row2['Cover'];
-                            #}
+                            setcookie('movie',$row['MovieTitle']);
                         }
                         ?>
                             <p>...</p>
@@ -101,46 +95,56 @@
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
-                        
+                    <?php
+                        printf("<img src=\"display.php\" width=\"150px\">");
+                    ?>
+
                     </div>
                 </div>
             </div>
             <div class="bs-calltoaction bs-calltoaction-primary">
-                <div class="row">
+            <div class="row">
                     <div class="col-md-6 cta-contents">
-                    <?php
+                        <div class="cta-desc">
+                        <?php
                         if($row = mysqli_fetch_assoc($result)){
-                            printf("<h2 class=\"cta-title\">%s</h2>", $row['MovieTitle']);
+                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
                             printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
+                            $_COOKIE['movie'] = $row['MovieTitle'];
                         }
                         ?>
-                        <div class="cta-desc">
-                        
                             <p>...</p>
                             <p>...</p>
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
+                    <?php
+                        printf("<img src=\"display.php\" width=\"150px\">");
+                    ?>
 
                     </div>
                 </div>
             </div>
 
             <div class="bs-calltoaction bs-calltoaction-info">
-                <div class="row">
+            <div class="row">
                     <div class="col-md-6 cta-contents">
-                    <?php
+                        <div class="cta-desc">
+                        <?php
                         if($row = mysqli_fetch_assoc($result)){
-                            printf("<h2 class=\"cta-title\">%s</h2>", $row['MovieTitle']);
+                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
                             printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
+                            $_COOKIE['movie'] = $row['MovieTitle'];
                         }
                         ?>
-                        <div class="cta-desc">
                             <p>...</p>
                             <p>...</p>
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
+                    <?php
+                        printf("<img src=\"display.php\" width=\"150px\">");
+                    ?>
 
                     </div>
                 </div>
