@@ -19,6 +19,7 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../CSS/css.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/個人訊息.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/推薦.css" />
 </head>
 
 <body>
@@ -82,13 +83,13 @@
                             <span>選單</span>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="個人訊息.php">
                                 <i class="far fa-gem"></i>
                                 <span>個人訊息</span>
                             </a>
                         </li>
                         <li>
-                            <a href="個人_觀看紀錄.php">
+                            <a href="#">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>觀看紀錄</span>
                             </a>
@@ -105,53 +106,50 @@
         </nav>
         <!-- sidebar-wrapper  -->
         <main class="page-content">
-            <div class="container-fluid">
-                <h4>個人訊息</h4>
-                <hr style="background-color: rgb(182, 181, 181);">
-                <?php
-                    $sql = "SELECT Fname, Lname, Ssn, Gender, B_Date, Pnumber, Address, Email 
-                    FROM member, user WHERE '$_SESSION[user]' = M_Account AND Ssn = M_Ssn";
-                    $result = execute_sql($con, $sql);
-                ?>
-                <form>
-                    <div class="row">
-                        <div class="form-group col-md-12">
-                            <?php
-                            $row = mysqli_fetch_assoc($result);
-                            echo "<font size = $size><b>Name&emsp;&emsp;</b>" . $row["Fname"]. " " . $row["Lname"]. "<br><br></font>";
-                            ?>
-                            <?php
-                            echo "<font size = $size><b>Ssn&emsp;&emsp;</b>" . $row["Ssn"]. "<br><br></font>";
-                            ?>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                                <?php
-                                 echo "<font size = $size><b>Gender&emsp;&emsp;</b>" . $row["Gender"]. "<br><br></font>";
-                                ?>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                                <?php
-                                 echo "<font size = $size><b>Birth Date&emsp;&emsp;</b>" . $row["B_Date"]. "<br><br></font>";
-                                ?>
-                                </div>
-                            </div>
-                            <?php
-                            echo "<font size = $size><b>Phone Number&emsp;&emsp;</b>" . $row["Pnumber"]. "<br><br></font>";
-                            ?>
-                            <?php
-                            echo "<font size = $size><b>Address&emsp;&emsp;</b>" . $row["Address"]. "<br><br></font>";
-                            ?>
-                            <?php
-                            echo "<font size = $size><b>Email&emsp;&emsp;</b>" . $row["Email"]. "<br><br></font>";
-                            ?>
+        <div class="container">
+        <div class="col-sm-9">
+            <div class="bs-calltoaction bs-calltoaction-default">
+                <div class="row">
+                    <div class="col-md-6 cta-contents">
+                        <div class="cta-desc">
+                        
                         </div>
-                        <!----------------讀入USER MEMBER訊息---------------------->
                     </div>
+                    <div class="col-md-3 cta-button">
+                   
 
-                </form>
-
+                    </div>
+                </div>
             </div>
+            <!--  第二項搜尋  -->
+            <div class="bs-calltoaction bs-calltoaction-primary">
+            <div class="row">
+                    <div class="col-md-6 cta-contents">
+                        <div class="cta-desc">
+                        
+                        </div>
+                    </div>
+                    <div class="col-md-3 cta-button">
+                    
+                    </div>
+                </div>
+            </div>
+            <!-- 搜尋結果3 -->
+            <div class="bs-calltoaction bs-calltoaction-info">
+            <div class="row">
+                    <div class="col-md-6 cta-contents">
+                        <div class="cta-desc">
+                        
+                        </div>
+                    </div>
+                    <div class="col-md-3 cta-button">
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
         </main>
+    </div>
         <!-- page-content" -->
     </div>
     <!-- page-wrapper -->

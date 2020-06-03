@@ -87,21 +87,20 @@
                         if($row = mysqli_fetch_assoc($result)){
                             printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
                             printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
-                            setcookie('movie',$row['MovieTitle']);
+                            setCookie('movie', $row['MovieTitle']);
                         }
                         ?>
-                            <p>...</p>
-                            <p>...</p>
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
                     <?php
-                        printf("<img src=\"display.php\" width=\"150px\">");
+                        printf("<img src='img1.php' width=\"150px\">");
                     ?>
 
                     </div>
                 </div>
             </div>
+            <!--  第二項搜尋  -->
             <div class="bs-calltoaction bs-calltoaction-primary">
             <div class="row">
                     <div class="col-md-6 cta-contents">
@@ -110,22 +109,21 @@
                         if($row = mysqli_fetch_assoc($result)){
                             printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
                             printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
-                            $_COOKIE['movie'] = $row['MovieTitle'];
+                            $_COOKIE['movie2'] = $row['MovieTitle'];
+                            echo $_COOKIE['movie2'];
                         }
                         ?>
-                            <p>...</p>
-                            <p>...</p>
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
                     <?php
-                        printf("<img src=\"display.php\" width=\"150px\">");
+                        printf("<img src='img2.php' width=\"150px\">");
+                        
                     ?>
-
                     </div>
                 </div>
             </div>
-
+            <!-- 搜尋結果3 -->
             <div class="bs-calltoaction bs-calltoaction-info">
             <div class="row">
                     <div class="col-md-6 cta-contents">
@@ -134,16 +132,14 @@
                         if($row = mysqli_fetch_assoc($result)){
                             printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
                             printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
-                            $_COOKIE['movie'] = $row['MovieTitle'];
+                            #$_COOKIE['movie3'] = $row['MovieTitle'];
                         }
                         ?>
-                            <p>...</p>
-                            <p>...</p>
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
                     <?php
-                        printf("<img src=\"display.php\" width=\"150px\">");
+                        printf("<img src='img3.php' width=\"150px\">");
                     ?>
 
                     </div>
