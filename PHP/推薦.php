@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>搜尋</title>
+    <title>推薦</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <a href="#" class="navbar-brand">Projectxx2020</a>
         <button class="navbar-toggler" type="button" data-target="#navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,37 +34,11 @@
                     <a href="../HTML/搜尋.html" class="nav-link">搜尋 |</a>
                 </li>
                 <li class="nav-item">
-                    <a href="推薦.php" class="nav-link">推薦 |</a>
+                    <a href="#" class="nav-link">推薦 |</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <section class="search-sec">
-        <div class="container">
-            <form action="搜尋結果.php" method="post" novalidate="novalidate">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                    <option>Select</option>
-                                    <option>Movie Title</option>
-                                    <option>Classification</option>
-                                    <option>Cast</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <input type="text" class="form-control search-slt" placeholder="輸入關鍵字" name = "search">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <button type="submit" class="btn btn-danger wrn-btn">Search</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
     <!------- 搜尋結果 ----------->
     <div class="container">
     <?php

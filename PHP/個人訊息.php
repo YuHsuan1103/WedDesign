@@ -41,7 +41,7 @@
                     <a href="../HTML/搜尋.html" class="nav-link">搜尋 |</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../HTML/推薦.html" class="nav-link">推薦 |</a>
+                    <a href="推薦.php" class="nav-link">推薦 |</a>
                 </li>
             </ul>
         </div>
