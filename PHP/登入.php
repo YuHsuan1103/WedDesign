@@ -10,6 +10,8 @@ if ($name && $passowrd){//如果使用者名稱和密碼都不為空
     $rows = mysqli_num_rows($result);//返回一個數值
     if($rows){//0 false 1 true
         $row = mysqli_fetch_array($result, MYSQLI_NUM);
+        session_start();
+        $_SESSION['user'] = $name;
         echo "
         <script>
         setTimeout(function(){window.location.href='個人訊息.php';},0000);

@@ -41,14 +41,22 @@
         </div>
     </nav>
     <div class="container a">
-            <form action="" method="POST" class="">
+            <form action="評論.php" method="POST" class="">
                 <div class="row">
                     <div class="col-md-1" style="font-size: large;">
-                        <span style="color: aliceblue;">標題</span>
+                        
                     </div>
                     <div class="col-md-5"><span>
                         <div class="form-group">
-                            <input type="text" name="title" class="form-control" placeholder="title">
+                            <?php
+                                require_once('connect.php');
+                                session_start();
+                                header("Content-Type: text/html; charset=utf8");
+                                $con = create_connection();
+                                $movietitle = '1917';
+                                setcookie('movietitle', $movietitle);
+                                printf("<span style=\"color: aliceblue;\">%s</span>",$_COOKIE['movietitle']);
+                            ?>
                         </div>
                     </span></div>
                 </div>
@@ -76,7 +84,7 @@
                         <span style="color: aliceblue;">內文</span>
                     </div>
                     <div class="col-md-11 form-group">
-                        <textarea name="context" id="" style="width: 680px; height: 275px;" class="form-control context" placeholder="context"></textarea>
+                        <textarea name="content" id="" style="width: 680px; height: 275px;" class="form-control content" placeholder="content"></textarea>
                     </div>
                     
                 </div>
@@ -87,6 +95,13 @@
                     </div>
                 </div>
             </form>
+            <!-- 將表單傳回資料庫 -->
+            <?php
+                $grade = $_POST['grade'];
+                $content = $_POST['content'];
+                $user = $_SESSION['user'];
+                $sql = "INSERT INTO comment VALUE ('$_COOKIE[movietitle], $grade, $content)"
+            ?>
     </div>
 </body>
 

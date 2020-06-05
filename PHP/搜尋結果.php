@@ -63,6 +63,7 @@
                     </div>
                 </div>
             </form>
+            
         </div>
     </section>
     <!------- 搜尋結果 ----------->
@@ -74,9 +75,11 @@
     $con = create_connection();
     $search = $_POST['search'];
     $sql_insert = "INSERT INTO search VALUES ('$search', '$_SESSION[user]')";
-    $sql = "SELECT MovieTitle, Classification, Introduction FROM movie WHERE MovieTitle LIKE '%$search%'";
+    $sql = "SELECT MovieTitle, Classification, Introduction FROM movies WHERE MovieTitle LIKE '%$search%'";
     $result = execute_sql($con, $sql);
     $result_insert = execute_sql($con, $sql_insert);
+    #$num = mysqli_num_rows($result);
+    #echo $num;
     ?>
         <div class="col-sm-9 container">
             <div class="bs-calltoaction bs-calltoaction-default">
@@ -96,7 +99,6 @@
                     <?php
                         printf("<img src='img1.php' width=\"150px\">");
                     ?>
-
                     </div>
                 </div>
             </div>
@@ -117,7 +119,7 @@
                     </div>
                     <div class="col-md-3 cta-button">
                     <?php
-                        printf("<img src='img2.php' width=\"150px\">");
+                        printf("<img src='img1.php' width=\"150px\">");
                         
                     ?>
                     </div>
@@ -139,7 +141,7 @@
                     </div>
                     <div class="col-md-3 cta-button">
                     <?php
-                        printf("<img src='img3.php' width=\"150px\">");
+                        printf("<img src='img1.php' width=\"150px\">");
                     ?>
 
                     </div>

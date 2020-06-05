@@ -106,18 +106,28 @@
         </nav>
         <!-- sidebar-wrapper  -->
         <main class="page-content">
+        <?php
+            $sql = "SELECT MovieTitle, Classification, Introduction
+                    FROM movies,member_watchhistory AS w,member AS m
+                    WHERE w.M_Account = m.M_Account
+                            AND w.WatchHistory = MovieTitle";
+            $result = execute_sql($con, $sql);
+        ?>
         <div class="container">
         <div class="col-sm-9">
             <div class="bs-calltoaction bs-calltoaction-default">
                 <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
-                        
+                        <?php
+                        if($row = mysqli_fetch_assoc($result)){
+                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
+                            printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
+                        }
+                        ?>
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
-                   
-
                     </div>
                 </div>
             </div>
@@ -126,7 +136,12 @@
             <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
-                        
+                        <?php
+                        if($row = mysqli_fetch_assoc($result)){
+                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
+                            printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
+                        }
+                        ?>
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
@@ -139,7 +154,12 @@
             <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
-                        
+                        <?php
+                        if($row = mysqli_fetch_assoc($result)){
+                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
+                            printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
+                        }
+                        ?>
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">

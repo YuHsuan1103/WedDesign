@@ -41,36 +41,16 @@
     </nav>
     <!------- 搜尋結果 ----------->
     <div class="container">
-    <?php
-    require_once('connect.php');
-    session_start();
-    header("Content-Type: text/html; charset=utf8");
-    $con = create_connection();
-    $search = $_POST['search'];
-    $sql_insert = "INSERT INTO search VALUES ('$search', '$_SESSION[user]')";
-    $sql = "SELECT MovieTitle, Classification, Introduction FROM movie WHERE MovieTitle LIKE '%$search%'";
-    $result = execute_sql($con, $sql);
-    $result_insert = execute_sql($con, $sql_insert);
-    ?>
         <div class="col-sm-9 container">
             <div class="bs-calltoaction bs-calltoaction-default">
                 <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
-                        <?php
-                        if($row = mysqli_fetch_assoc($result)){
-                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
-                            printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
-                            setCookie('movie', $row['MovieTitle']);
-                        }
-                        ?>
+                        
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
-                    <?php
-                        printf("<img src='img1.php' width=\"150px\">");
-                    ?>
-
+                  
                     </div>
                 </div>
             </div>
@@ -79,21 +59,11 @@
             <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
-                        <?php
-                        if($row = mysqli_fetch_assoc($result)){
-                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
-                            printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
-                            $_COOKIE['movie2'] = $row['MovieTitle'];
-                            echo $_COOKIE['movie2'];
-                        }
-                        ?>
+                        
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
-                    <?php
-                        printf("<img src='img2.php' width=\"150px\">");
-                        
-                    ?>
+                    
                     </div>
                 </div>
             </div>
@@ -102,20 +72,11 @@
             <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
-                        <?php
-                        if($row = mysqli_fetch_assoc($result)){
-                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
-                            printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
-                            #$_COOKIE['movie3'] = $row['MovieTitle'];
-                        }
-                        ?>
+                        
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
-                    <?php
-                        printf("<img src='img3.php' width=\"150px\">");
-                    ?>
-
+                   
                     </div>
                 </div>
             </div>
