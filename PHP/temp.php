@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>我的評論</title>
+    <title>個人訊息</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -26,7 +26,7 @@
     
     <!----------------------上方選單-------------------------->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <a href="../HTML/首頁.html" class="navbar-brand">Projectxx2020</a>
+        <a href="首頁.html" class="navbar-brand">Projectxx2020</a>
         <button class="navbar-toggler" type="button" data-target="#navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -105,24 +105,35 @@
       <!-- sidebar-menu  -->
     </div>
     <!-- sidebar-content  -->
-    
+    <?php
+        $sql = "SELECT MovieTitle, Cover
+            FROM movies, member_watchhistory
+            WHERE M_Account = '$_SESSION[user]'
+                AND WatchHistory = MovieTitle";
+        $result = execute_sql($con, $sql);
+        $temp;
+    ?>
   </nav>
         <!-- sidebar-wrapper  -->
         <main class="page-content" style="padding-top: 75px;">
         <div class="container-fluid">
-        <h2>我的評論</h2>
+        <h2>觀看紀錄</h2>
       <hr style="background-color: rgb(182, 181, 181);">
         <div class="col-sm-9">
             <div class="bs-calltoaction bs-calltoaction-default">
                 <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
-                        
+                        <?php
+                        if($row = mysqli_fetch_assoc($result)){
+                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
+                            $temp = "data:image/jpeg;base64,".$row['Cover'];
+                        }
+                        ?>
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
-                   
-
+                    <img src="<?php echo $temp;?>" alt="" style = "weight: 100px; height: 100px;">
                     </div>
                 </div>
             </div>
@@ -131,11 +142,16 @@
             <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
-                        
+                        <?php
+                        if($row = mysqli_fetch_assoc($result)){
+                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
+                            $temp = "data:image/jpeg;base64,".$row['Cover'];
+                        }
+                        ?>
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
-                    
+                    <img src="<?php echo $temp;?>" alt="" style = "weight: 100px; height: 100px;">
                     </div>
                 </div>
             </div>
@@ -144,11 +160,16 @@
             <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
-                        
+                        <?php
+                        if($row = mysqli_fetch_assoc($result)){
+                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
+                            $temp = "data:image/jpeg;base64,".$row['Cover'];
+                        }
+                        ?>
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">
-                   
+                        <img src="<?php echo $temp;?>" alt="" style = "weight: 100px; height: 100px;">
                     </div>
                 </div>
             </div>
@@ -157,14 +178,7 @@
     </div>
         <!-- page-content" -->
     </div>
-    <!-- page-wrapper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    
 </body>
 
 </html>
