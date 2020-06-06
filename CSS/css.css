@@ -1,26 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Numans');
-html,
 body {
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    font-family: 'Numans', sans-serif;
+    background: #ffffffe7;
+    margin: 0px auto;
 }
 
-body {
-    background: #f3f1f1e7;
+#blk {
+    display: none;
 }
 
 .navbar {
-    background: #35578bb0;
+    background: #222222;
 }
 
 .nav-item::after {
     content: '';
     display: block;
     width: 0px;
-    height: 5px;
-    background: #971c1c;
+    height: 2px;
+    background: #fec400;
     transition: 0.2s;
 }
 
@@ -34,7 +30,7 @@ body {
 .navbar-dark .navbar-nav .show>.nav-link,
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: #182841;
+    color: #fec400;
 }
 
 .nav-link {
@@ -44,7 +40,7 @@ body {
 
 .dropdown-item.active,
 .dropdown-item:active {
-    color: #18163dc9;
+    color: #3b4044;
 }
 
 .dropdown-item:focus,
