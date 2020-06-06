@@ -40,23 +40,65 @@
             </ul>
         </div>
     </nav>
+    <?php
+    require_once('connect.php');
+    session_start();
+    header("Content-Type: text/html; charset=utf8");
+    $con = create_connection();
+    $movie = $_GET['movie'];
+    $sql = "SELECT MovieTitle, Classification, Introduction, Cover
+            FROM movies
+            WHERE MovieTitle = '$movie'";
+    $sql_C = "SELECT C_name
+                FROM `character`
+                WHERE C_MovieTitle = '$movie'";
+    $sql_D = "SELECT Dname
+            FROM director
+            WHERE MovieTitle = '$movie'";
+    $result = execute_sql($con, $sql);
+    $resultC = execute_sql($con, $sql_C);
+    $resultD = execute_sql($con, $sql_D);
+    $temp;
+    ?>
 <div class="container">
    <div class="row">
       <div class="col">
          <div class="card flex-md-row mb-4 shadow-sm h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
-               <strong class="d-inline-block mb-2 text-primary">MovieTitle</strong>
+               <strong class="d-inline-block mb-2 text-primary">
+                <?php
+                    if($row = mysqli_fetch_assoc($result)){
+                        printf("<h2 class=\"cta-title\">%s</h2>", $row['MovieTitle']);
+                        $temp = "data:image/jpeg;base64,".$row['Cover'];
+                    }
+                ?>
+               </strong>
                <h6 class="mb-0">
-                  <a class="text-dark" href="#">Cname</a>
-               </h6>
+               <?php
+                    if($rowC = mysqli_fetch_assoc($resultC)){
+                        printf("%s", $rowC['C_name']);
+                    }
+                    while($rowC = mysqli_fetch_assoc($resultC)){
+                        printf(",&emsp;%s", $rowC['C_name']);
+                    }
+                ?>
                <h6 class="mb-0">
-                  <a class="text-dark" href="#">Dname</a>
+               <?php
+                    if($rowD = mysqli_fetch_assoc($resultD)){
+                        printf("<br>%s", $rowD['Dname']);
+                    }
+                    while($rowD = mysqli_fetch_assoc($resultD)){
+                        printf(",&emsp;%s", $rowD['Dname']);
+                    }
+                ?>
                </h6>
-               <div class="mb-1 text-muted small">Classification</div>
-               <p class="card-text mb-auto">Introduction</p>
+               <br><br>
+               <?php
+                    printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
+               ?>
                <a class="btn btn-outline-primary btn-sm" role="button" href="">Watch Now</a>
             </div>
-            <img class="card-img-right flex-auto d-none d-lg-block" alt="還沒放" src="" style="width: 200px; height: 250px;">
+            <img src="<?php echo $temp;?>" alt="" style = "weight: 250px; height: 250px;">
          </div>
       </div>
 </div>

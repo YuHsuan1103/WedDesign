@@ -81,6 +81,7 @@
     $result = execute_sql($con, $sql);
     $result_insert = execute_sql($con, $sql_insert);
     $temp;
+    $moviename;
     #$num = mysqli_num_rows($result);
     #echo $num;
     ?>
@@ -92,7 +93,8 @@
                         <div class="cta-desc">
                         <?php
                         if($row = mysqli_fetch_assoc($result)){
-                            printf("<a href=\"電影內容.php\"  style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
+                            $moviename = $row['MovieTitle'];
+                            printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
                             printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
                         }
@@ -111,7 +113,8 @@
                         <div class="cta-desc">
                         <?php
                         if($row = mysqli_fetch_assoc($result)){
-                            printf("<a href=\"電影內容.php\"  style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
+                            $moviename = $row['MovieTitle'];
+                            printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
                             printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
                         }
@@ -130,7 +133,8 @@
                         <div class="cta-desc">
                         <?php
                         if($row = mysqli_fetch_assoc($result)){
-                            printf("<a href=\"電影內容.php\"  style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
+                            $moviename = $row['MovieTitle'];
+                            printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
                             printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
                         }
