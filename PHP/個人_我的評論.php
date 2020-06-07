@@ -35,7 +35,6 @@
                 <li class="nav-item active">
                     <a href="../HTML/登入.html" class="nav-link">Sign In </a>
                 </li>
-                
                 <li class="nav-item">
                     <a href="個人訊息.php" class="nav-link">我的首頁 |</a>
                 </li>
@@ -56,6 +55,7 @@
     <?php
         require_once('connect.php');
         session_start();
+        checksession();
         header("Content-Type: text/html; charset=utf8");
         $con = create_connection();
         $sql = "SELECT Fname, Lname, M_Account 

@@ -57,6 +57,7 @@
                             <?php
                                 require_once('connect.php');
                                 session_start();
+                                checksession();
                                 header("Content-Type: text/html; charset=utf8");
                                 $con = create_connection();
                                 $movietitle = '1917';

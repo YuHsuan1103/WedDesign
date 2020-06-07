@@ -14,5 +14,16 @@
         return $result;
     }
 
+    function checksession(){
+        session_start();
+        if($_SESSION['user'] == NULL){
+            echo "
+            <script>
+            setTimeout(function(){window.location.href='../HTML/登入.html';},0000);
+            window.alert('登入後方能使用本系統');
+            </script>";//如果錯誤使用js 1秒後跳轉到登入頁面重試;
+        }
+    }
+
     #require_once('connect.php');
 ?>

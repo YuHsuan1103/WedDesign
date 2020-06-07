@@ -46,6 +46,11 @@
         </ul>
     </nav>
     <!------- 搜尋結果 ----------->
+    <?php
+    require_once('connect.php');
+    session_start();
+    checksession();
+    ?>
     <div class="container" style="padding-top:110px;">
         <div class="col-sm-9">
             <div class="bs-calltoaction bs-calltoaction-default">
