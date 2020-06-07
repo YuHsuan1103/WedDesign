@@ -37,9 +37,13 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link">推薦 |</a>
                 </li>
-                
             </ul>
         </div>
+        <ul class="navbar-nav navbar-right">
+            <li>
+                <a href="#" class="nav-link">登出</a>
+            </li>
+        </ul>
     </nav>
     <!------- 搜尋結果 ----------->
     <div class="container" style="padding-top:110px;">

@@ -23,11 +23,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav navbar-left">
                 <li class="nav-item active">
                     <a href="../HTML/登入.html" class="nav-link">Sign In </a>
                 </li>
-                
                 <li class="nav-item">
                     <a href="個人訊息.php" class="nav-link">我的首頁 |</a>
                 </li>
@@ -37,9 +36,13 @@
                 <li class="nav-item">
                     <a href="推薦.php" class="nav-link">推薦 |</a>
                 </li>
-                
             </ul>
         </div>
+        <ul class="navbar-nav navbar-right">
+            <li>
+                <a href="#" class="nav-link">登出</a>
+            </li>
+        </ul>
     </nav>
     <section class="search-sec" style="padding-top:50px;">
         <div class="container">
