@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/css.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/電影內容.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/推薦.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/評論.css" />
 </head>
 
 <body>
@@ -111,7 +112,53 @@
                         <img src="<?php echo $temp;?>" alt="" style = "weight: 250px; height: 250px;">
                     </div>
                 </div>
-                <a class="btn btn-outline-primary btn-sm" role="button" href="">Watch Now</a>
+                <a class="btn btn-outline-dark btn-sm" role="button" href="">Watch Now</a>
+            </div>
+            <br><br>
+            <!-- 評論 -->
+            <div class="bs-calltoaction bs-calltoaction-default">
+                <div class="row">
+                    <div class="col-md-6 cta-contents">
+                        <div class="cta-desc">
+            <form action="" method="POST" class="">
+                <div class="row">
+                    <div class="col-md-1" style="font-size: large;">
+                        <span style="color: aliceblue;">評分</span>
+                    </div>
+                    <div class="col-md-5 btn-group"><span>
+                        <div class="abgne-menu-20140101-1">
+                            <input type="radio" id="one" name="grade">
+                            <label for="one">1</label>
+                            <input type="radio" id="two" name="grade">
+                            <label for="two">2</label>
+                            <input type="radio" id="three" name="grade">
+                            <label for="three">3</label>
+                            <input type="radio" id="four" name="grade">
+                            <label for="four">4</label>
+                            <input type="radio" id="five" name="grade">
+                            <label for="five">5</label>
+                        </div>
+                        </span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1" style="font-size: large;">
+                        <span style="color: aliceblue;">內文</span>
+                    </div>
+                    <div class="col-md-11 form-group">
+                        <textarea name="content" id="" style="width: 680px; height: 275px;" class="form-control content" placeholder="content"></textarea>
+                    </div>
+                    
+                </div>
+                <br><br><br>
+                <div class="row">
+                    <div class="col-md-7 form-group">
+                        <input type="submit" value="submit" class="btn float-right login_btn b">
+                    </div>
+                </div>
+            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
       </div>
 </body>

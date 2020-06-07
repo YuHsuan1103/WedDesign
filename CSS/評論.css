@@ -1,7 +1,4 @@
-.a {
-    margin-top: 100px;
-    width: 60%;
-}
+
 .textarea {
     font-size: 15px;
 }
@@ -36,6 +33,6 @@
 }
 
 .b {
-    background-color: rgb(158, 154, 154);
+    background-color: rgb(255, 0, 0);
 	color: rgb(255, 255, 255);
 }
