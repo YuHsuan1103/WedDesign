@@ -48,11 +48,12 @@
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                    <option>Select</option>
-                                    <option>Movie Title</option>
-                                    <option>Classification</option>
-                                    <option>Cast</option>
+                            <select class="form-control search-slt" id="exampleFormControlSelect1" name="select">
+                                    <option value="" disabled selected hidden>Select</option>
+                                    <option value="search">Movie Title</option>
+                                    <option value="searchclassification">Classification</option>
+                                    <option value="searchcharacters">Character</option>
+                                    <option value="searchdirectors">Director</option>
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
@@ -76,14 +77,32 @@
     header("Content-Type: text/html; charset=utf8");
     $con = create_connection();
     $search = $_POST['search'];
-    $sql_insert = "INSERT INTO search VALUES ('$search', '$_SESSION[user]')";
-    $sql = "SELECT MovieTitle, Classification, Introduction, Cover FROM movies WHERE MovieTitle LIKE '%$search%'";
+    $select = $_POST['select'];
+    $sql_insert = "INSERT INTO $_POST[select] VALUES ('$search', '$_SESSION[user]')";
+    if($_POST['select'] == "search"){
+        $sql = "SELECT MovieTitle, Classification, Introduction, Cover
+                FROM movies
+                WHERE MovieTitle LIKE '%$search%'";
+    }
+    elseif($_POST['select'] == "searchclassification"){
+        $sql = "SELECT MovieTitle, Classification, Introduction, Cover
+                FROM movies
+                WHERE classification LIKE '%$search%'";
+    }
+    elseif($_POST['select'] == "searchcharacters"){
+        $sql = "SELECT MovieTitle, Classification, Introduction, Cover
+                FROM movies, `character`
+                WHERE MovieTitle = C_MovieTitle AND C_name LIKE '%$search%'";
+    }
+    elseif($_POST['select'] == "searchdirectors"){
+        $sql = "SELECT m.MovieTitle, m.Classification, m.Introduction, m.Cover
+                FROM director AS d, movies AS m
+                WHERE d.MovieTitle = m.MovieTitle AND d.Dname LIKE '%$search%'";
+    }
     $result = execute_sql($con, $sql);
     $result_insert = execute_sql($con, $sql_insert);
     $temp;
     $moviename;
-    #$num = mysqli_num_rows($result);
-    #echo $num;
     ?>
     <div class="container">
         <div class="col-sm-9">
@@ -108,7 +127,7 @@
             </div>
             <!--  第二項搜尋  -->
             <div class="bs-calltoaction bs-calltoaction-primary">
-            <div class="row">
+                <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
                         <?php
@@ -146,13 +165,14 @@
                     </div>
                 </div>
             </div>
-            <div class="bs-calltoaction bs-calltoaction-info">
+            <div class="bs-calltoaction bs-calltoaction-primary">
                 <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
                         <?php
                         if($row = mysqli_fetch_assoc($result)){
-                            printf("<a href=\"電影內容.php\"  style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
+                            $moviename = $row['MovieTitle'];
+                            printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
                             printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
                         }
@@ -182,13 +202,14 @@
                     </div>
                 </div>
             </div>
-            <div class="bs-calltoaction bs-calltoaction-info">
+            <div class="bs-calltoaction bs-calltoaction-primary">
                 <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
                         <?php
                         if($row = mysqli_fetch_assoc($result)){
-                            printf("<a href=\"電影內容.php\"  style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
+                            $moviename = $row['MovieTitle'];
+                            printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
                             printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
                         }
