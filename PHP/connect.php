@@ -15,7 +15,6 @@
     }
 
     function checksession(){
-        session_start();
         if($_SESSION['user'] == NULL){
             echo "
             <script>

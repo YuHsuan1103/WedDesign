@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../CSS/css.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/電影內容.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/推薦.css" />
 </head>
 
 <body>
@@ -26,7 +27,6 @@
                 <li class="nav-item active">
                     <a href="../HTML/登入.html" class="nav-link">Sign In </a>
                 </li>
-                
                 <li class="nav-item">
                     <a href="個人訊息.php" class="nav-link">我的首頁 |</a>
                 </li>
@@ -40,7 +40,7 @@
         </div>
         <ul class="navbar-nav navbar-right">
             <li>
-                <a href="#" class="nav-link">登出</a>
+                <a href="登出.php" class="nav-link">登出</a>
             </li>
         </ul>
     </nav>
@@ -56,60 +56,64 @@
             WHERE MovieTitle = '$movie'";
     $sql_C = "SELECT C_name
                 FROM `character`
-                WHERE C_MovieTitle = '$movie'";
+                WHERE C_MovieTitle LIKE '%$movie%'";
     $sql_D = "SELECT Dname
             FROM director
-            WHERE MovieTitle = '$movie'";
+            WHERE MovieTitle LIKE '%$movie%'";
     $result = execute_sql($con, $sql);
     $resultC = execute_sql($con, $sql_C);
     $resultD = execute_sql($con, $sql_D);
     $temp;
     ?>
-<div class="container">
-   <div class="row">
-      <div class="col">
-         <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-            <div class="card-body d-flex flex-column align-items-start">
-               <strong class="d-inline-block mb-2 text-primary">
-                <?php
-                    if($row = mysqli_fetch_assoc($result)){
-                        printf("<h2 class=\"cta-title\">%s</h2>", $row['MovieTitle']);
-                        $temp = "data:image/jpeg;base64,".$row['Cover'];
-                    }
-                ?>
-               </strong>
-               <h6 class="mb-0">
-               <?php
-                    if($rowC = mysqli_fetch_assoc($resultC)){
-                        printf("%s", $rowC['C_name']);
-                    }
-                    while($rowC = mysqli_fetch_assoc($resultC)){
-                        printf(",&emsp;%s", $rowC['C_name']);
-                    }
-                ?>
-               <h6 class="mb-0">
-               <?php
-                    if($rowD = mysqli_fetch_assoc($resultD)){
-                        printf("<br>%s", $rowD['Dname']);
-                    }
-                    while($rowD = mysqli_fetch_assoc($resultD)){
-                        printf(",&emsp;%s", $rowD['Dname']);
-                    }
-                ?>
-               </h6>
-               <br><br>
-               <?php
-                    printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
-               ?>
-               <a class="btn btn-outline-primary btn-sm" role="button" href="">Watch Now</a>
+    <div class="container">
+        <div class="col-sm-9">
+            <div class="bs-calltoaction bs-calltoaction-default">
+                <div class="row">
+                    <div class="col-md-6 cta-contents">
+                        <div class="cta-desc">
+                        <strong class="d-inline-block mb-2">
+                        <?php
+                          if($row = mysqli_fetch_assoc($result)){
+                              printf("<h2 class=\"cta-title\">%s</h2>", $row['MovieTitle']);
+                               $temp = "data:image/jpeg;base64,".$row['Cover'];
+                            }
+                        ?>
+                        </strong>
+                        <h6 class="mb-0">
+                       <?php
+                           if($rowC = mysqli_fetch_assoc($resultC)){
+                              printf("%s", $rowC['C_name']);
+                          }
+                           while($rowC = mysqli_fetch_assoc($resultC)){
+                                printf(",&emsp;%s", $rowC['C_name']);
+                            }
+                        ?>
+                        <br>
+                     <h6 class="mb-0">
+                        <?php
+                         if($rowD = mysqli_fetch_assoc($resultD)){
+                             
+                             printf("%s", $rowD['Dname']);
+                            }
+                          while($rowD = mysqli_fetch_assoc($resultD)){
+                             printf(",&emsp;%s", $rowD['Dname']);
+                           }
+                        ?>
+                        </div>
+                        <h5 class="mb-0">
+                        <?php
+                            printf("<p>%s<br><br><br><br>%s</p>",$row['Classification'], $row['Introduction']);
+                            $temp = "data:image/jpeg;base64,".$row['Cover'];
+            
+                        ?>
+                    </div>
+                    <div class="col-md-3 cta-button">
+                        <img src="<?php echo $temp;?>" alt="" style = "weight: 250px; height: 250px;">
+                    </div>
+                </div>
+                <a class="btn btn-outline-primary btn-sm" role="button" href="">Watch Now</a>
             </div>
-            <img src="<?php echo $temp;?>" alt="" style = "weight: 250px; height: 250px;">
-         </div>
       </div>
-</div>
-
-    
-
 </body>
 
 </html>
