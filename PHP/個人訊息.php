@@ -107,8 +107,8 @@
   <!-- sidebar-wrapper  -->
   <main class="page-content" style="padding-top: 75px;">
     <div class="container-fluid">
-      <h2>個人訊息</h2>
-      <hr style="background-color: rgb(182, 181, 181);">
+      <h2><b>個人訊息</b></h2><br>
+      <div style="border-top:4px solid rgba(78, 78, 78, 0.582); height: 15px;width:101%" class="w3-panel"></div>
       <div class="row">
         <div class="form-group col-md-12">
         <?php
@@ -119,19 +119,20 @@
         </div>
       </div>
       <form>
-        <div class="row">
-            <div class="form-group col-md-12">
+        <div class="row w3-panel">
+            <div class="form-group col-md-12" style="border-right:5px solid rgba(78, 78, 78, 0.582)">
                 <?php
                     $row = mysqli_fetch_assoc($result);
                     echo "<font size = $size><b>Name&emsp;&emsp;</b>" . $row["Fname"]. " " . $row["Lname"]. "<br><br><br></font>";
                     echo "<font size = $size><b>Ssn&emsp;&emsp;</b>" . $row["Ssn"]. "<br><br><br></font>";
                 ?>
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                         <?php
                             echo "<font size = $size><b>Gender&emsp;&emsp;</b>" . $row["Gender"]. "<br><br><br></font>";
                         ?>
-                    </div>
+                    </div> 
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                         <?php
                             echo "<font size = $size><b>Birth Date&emsp;&emsp;</b>" . $row["B_Date"]. "<br><br><br></font>";
