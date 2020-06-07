@@ -113,13 +113,13 @@
         <?php
             if($row = mysqli_fetch_assoc($result)){
             echo
-            "<div class=\"bs-calltoaction bs-calltoaction-primary\">
+            "<div class=\"bs-calltoaction bs-calltoaction-default\">
                 <div class=\"row\">
                     <div class=\"col-md-6 cta-contents\">
                         <div class=\"cta-desc\">";
                             $moviename = $row['MovieTitle'];
                             printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
-                            printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
+                            printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
                         
                         echo
@@ -143,7 +143,7 @@
                         <div class=\"cta-desc\">";
                             $moviename = $row['MovieTitle'];
                             printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
-                            printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
+                            printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
                         
                         echo
@@ -161,13 +161,13 @@
             <?php
             if($row = mysqli_fetch_assoc($result)){
             echo
-            "<div class=\"bs-calltoaction bs-calltoaction-primary\">
+            "<div class=\"bs-calltoaction bs-calltoaction-info\">
                 <div class=\"row\">
                     <div class=\"col-md-6 cta-contents\">
                         <div class=\"cta-desc\">";
                             $moviename = $row['MovieTitle'];
                             printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
-                            printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
+                            printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
                         
                         echo
@@ -184,13 +184,13 @@
             <?php
             if($row = mysqli_fetch_assoc($result)){
             echo
-            "<div class=\"bs-calltoaction bs-calltoaction-primary\">
+            "<div class=\"bs-calltoaction bs-calltoaction-success\">
                 <div class=\"row\">
                     <div class=\"col-md-6 cta-contents\">
                         <div class=\"cta-desc\">";
                             $moviename = $row['MovieTitle'];
                             printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
-                            printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
+                            printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
                         
                         echo
@@ -207,13 +207,13 @@
             <?php
             if($row = mysqli_fetch_assoc($result)){
             echo
-            "<div class=\"bs-calltoaction bs-calltoaction-primary\">
+            "<div class=\"bs-calltoaction bs-calltoaction-warning\">
                 <div class=\"row\">
                     <div class=\"col-md-6 cta-contents\">
                         <div class=\"cta-desc\">";
                             $moviename = $row['MovieTitle'];
                             printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
-                            printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
+                            printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
                         
                         echo
@@ -230,13 +230,13 @@
             <?php
             if($row = mysqli_fetch_assoc($result)){
             echo
-            "<div class=\"bs-calltoaction bs-calltoaction-primary\">
+            "<div class=\"bs-calltoaction bs-calltoaction-danger\">
                 <div class=\"row\">
                     <div class=\"col-md-6 cta-contents\">
                         <div class=\"cta-desc\">";
                             $moviename = $row['MovieTitle'];
                             printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
-                            printf("<p>%s<br>%s</p>",$row['Classification'], $row['Introduction']);
+                            printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
                         
                         echo

@@ -83,6 +83,7 @@
                         <h6 class="mb-0">
                        <?php
                            if($rowC = mysqli_fetch_assoc($resultC)){
+                            printf("<br>Casts : ");
                               printf("%s", $rowC['C_name']);
                           }
                            while($rowC = mysqli_fetch_assoc($resultC)){
@@ -93,17 +94,19 @@
                      <h6 class="mb-0">
                         <?php
                          if($rowD = mysqli_fetch_assoc($resultD)){
-                             
+                            printf("Director : ");
                              printf("%s", $rowD['Dname']);
                             }
                           while($rowD = mysqli_fetch_assoc($resultD)){
+                            
                              printf(",&emsp;%s", $rowD['Dname']);
                            }
                         ?>
                         </div>
                         <h5 class="mb-0">
                         <?php
-                            printf("<p>%s<br><br><br><br>%s</p>",$row['Classification'], $row['Introduction']);
+
+                            printf("Genre : %s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
             
                         ?>
