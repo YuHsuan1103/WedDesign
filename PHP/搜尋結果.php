@@ -51,7 +51,7 @@
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <select class="form-control search-slt" id="exampleFormControlSelect1" name="select">
+                            <select required class="form-control search-slt" id="exampleFormControlSelect1" name="select">
                                     <option value="" disabled selected hidden>Select</option>
                                     <option value="search">Movie Title</option>
                                     <option value="searchclassification">Classification</option>
@@ -111,7 +111,7 @@
     <div class="container">
         <div class="col-sm-9">
         <?php
-            if($row = mysqli_fetch_assoc($result)){
+        while($row = mysqli_fetch_assoc($result)){
             echo
             "<div class=\"bs-calltoaction bs-calltoaction-default\">
                 <div class=\"row\">
@@ -126,130 +126,12 @@
                         "</div>
                     </div>
                     <div class=\"col-md-3 cta-button\">
-                    
                         <img src=\""; echo $temp; echo "\" alt=\"\" style = \"weight: 250px; height: 250px;\">
-                    </div>";
-                }
-                    ?>
-                </div>
-            </div>
-            <!--  第二項搜尋  -->
-            <?php
-            if($row = mysqli_fetch_assoc($result)){
-            echo
-            "<div class=\"bs-calltoaction bs-calltoaction-primary\">
-                <div class=\"row\">
-                    <div class=\"col-md-6 cta-contents\">
-                        <div class=\"cta-desc\">";
-                            $moviename = $row['MovieTitle'];
-                            printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
-                            printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
-                            $temp = "data:image/jpeg;base64,".$row['Cover'];
-                        
-                        echo
-                        "</div>
                     </div>
-                    <div class=\"col-md-3 cta-button\">
-                    
-                        <img src=\""; echo $temp; echo "\" alt=\"\" style = \"weight: 250px; height: 250px;\">
-                    </div>";
-                }
-                    ?>
                 </div>
-            </div>
-            <!-- 搜尋結果3 -->
-            <?php
-            if($row = mysqli_fetch_assoc($result)){
-            echo
-            "<div class=\"bs-calltoaction bs-calltoaction-info\">
-                <div class=\"row\">
-                    <div class=\"col-md-6 cta-contents\">
-                        <div class=\"cta-desc\">";
-                            $moviename = $row['MovieTitle'];
-                            printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
-                            printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
-                            $temp = "data:image/jpeg;base64,".$row['Cover'];
-                        
-                        echo
-                        "</div>
-                    </div>
-                    <div class=\"col-md-3 cta-button\">
-                    
-                        <img src=\""; echo $temp; echo "\" alt=\"\" style = \"weight: 250px; height: 250px;\">
-                    </div>";
-                }
-                    ?>
-                </div>
-            </div>
-            <?php
-            if($row = mysqli_fetch_assoc($result)){
-            echo
-            "<div class=\"bs-calltoaction bs-calltoaction-success\">
-                <div class=\"row\">
-                    <div class=\"col-md-6 cta-contents\">
-                        <div class=\"cta-desc\">";
-                            $moviename = $row['MovieTitle'];
-                            printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
-                            printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
-                            $temp = "data:image/jpeg;base64,".$row['Cover'];
-                        
-                        echo
-                        "</div>
-                    </div>
-                    <div class=\"col-md-3 cta-button\">
-                    
-                        <img src=\""; echo $temp; echo "\" alt=\"\" style = \"weight: 250px; height: 250px;\">
-                    </div>";
-                }
-                    ?>
-                </div>
-            </div>
-            <?php
-            if($row = mysqli_fetch_assoc($result)){
-            echo
-            "<div class=\"bs-calltoaction bs-calltoaction-warning\">
-                <div class=\"row\">
-                    <div class=\"col-md-6 cta-contents\">
-                        <div class=\"cta-desc\">";
-                            $moviename = $row['MovieTitle'];
-                            printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
-                            printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
-                            $temp = "data:image/jpeg;base64,".$row['Cover'];
-                        
-                        echo
-                        "</div>
-                    </div>
-                    <div class=\"col-md-3 cta-button\">
-                    
-                        <img src=\""; echo $temp; echo "\" alt=\"\" style = \"weight: 250px; height: 250px;\">
-                    </div>";
-                }
-                    ?>
-                </div>
-            </div>
-            <?php
-            if($row = mysqli_fetch_assoc($result)){
-            echo
-            "<div class=\"bs-calltoaction bs-calltoaction-danger\">
-                <div class=\"row\">
-                    <div class=\"col-md-6 cta-contents\">
-                        <div class=\"cta-desc\">";
-                            $moviename = $row['MovieTitle'];
-                            printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
-                            printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
-                            $temp = "data:image/jpeg;base64,".$row['Cover'];
-                        
-                        echo
-                        "</div>
-                    </div>
-                    <div class=\"col-md-3 cta-button\">
-                    
-                        <img src=\""; echo $temp; echo "\" alt=\"\" style = \"weight: 250px; height: 250px;\">
-                    </div>";
-                }
-                    ?>
-                </div>
-            </div>
+            </div>";
+        }
+        ?>
         </div>
     </div>
 

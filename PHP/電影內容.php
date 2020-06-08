@@ -115,7 +115,7 @@
                         <img src="<?php echo $temp;?>" alt="" style = "weight: 250px; height: 250px;">
                     </div>
                 </div>
-                <a class="btn btn-outline-dark btn-sm" role="button" href="">Watch Now</a>
+                <a class="btn btn-outline-dark btn-sm" role="button" href="電影播放.php">Watch Now</a>
             </div>
             <br><br>
             <!-- 評論 -->

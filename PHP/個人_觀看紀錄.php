@@ -119,64 +119,32 @@
     ?>
   </nav>
         <!-- sidebar-wrapper  -->
-        <main class="page-content" style="padding-top: 75px;">
+    <main class="page-content" style="padding-top: 75px;">
         <div class="container-fluid">
         <h2>觀看紀錄</h2>
-      <hr style="background-color: rgb(182, 181, 181);">
+        <hr style="background-color: rgb(182, 181, 181);">
         <div class="col-sm-9">
-            <div class="bs-calltoaction bs-calltoaction-default">
-                <div class="row">
-                    <div class="col-md-6 cta-contents">
-                        <div class="cta-desc">
-                        <?php
-                        if($row = mysqli_fetch_assoc($result)){
-                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
+        <?php
+        while($row = mysqli_fetch_assoc($result)){
+            echo
+            "<div class=\"bs-calltoaction bs-calltoaction-default\">
+                <div class=\"row\">
+                    <div class=\"col-md-6 cta-contents\">
+                        <div class=\"cta-desc\">";
+                            $moviename = $row['MovieTitle'];
+                            printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
-                        }
-                        ?>
-                        </div>
+                        echo
+                        "</div>
                     </div>
-                    <div class="col-md-3 cta-button">
-                    <img src="<?php echo $temp;?>" alt="" style = "weight: 100px; height: 100px;">
+                    <div class=\"col-md-3 cta-button\">
+                        <img src=\""; echo $temp; echo "\" alt=\"\" style = \"weight: 150px; height: 150px;\">
                     </div>
                 </div>
-            </div>
-            <!--  第二項搜尋  -->
-            <div class="bs-calltoaction bs-calltoaction-primary">
-            <div class="row">
-                    <div class="col-md-6 cta-contents">
-                        <div class="cta-desc">
-                        <?php
-                        if($row = mysqli_fetch_assoc($result)){
-                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
-                            $temp = "data:image/jpeg;base64,".$row['Cover'];
-                        }
-                        ?>
-                        </div>
-                    </div>
-                    <div class="col-md-3 cta-button">
-                    <img src="<?php echo $temp;?>" alt="" style = "weight: 100px; height: 100px;">
-                    </div>
-                </div>
-            </div>
-            <!-- 搜尋結果3 -->
-            <div class="bs-calltoaction bs-calltoaction-info">
-            <div class="row">
-                    <div class="col-md-6 cta-contents">
-                        <div class="cta-desc">
-                        <?php
-                        if($row = mysqli_fetch_assoc($result)){
-                            printf("<h2 class=\"cta-title\">%s</h2><br>", $row['MovieTitle']);
-                            $temp = "data:image/jpeg;base64,".$row['Cover'];
-                        }
-                        ?>
-                        </div>
-                    </div>
-                    <div class="col-md-3 cta-button">
-                        <img src="<?php echo $temp;?>" alt="" style = "weight: 100px; height: 100px;">
-                    </div>
-                </div>
-            </div>
+            </div>";
+        }
+        ?>
+         </div>
         </div>
         </main>
     </div>
