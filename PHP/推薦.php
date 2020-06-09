@@ -46,18 +46,35 @@
         </ul>
     </nav>
     <!------- 搜尋結果 ----------->
+
     <?php
     require_once('connect.php');
     session_start();
     checksession();
+    header("Content-Type: text/html; charset=utf8");
+    $con = create_connection();
+
+    $sql = "SELECT WatchHistory
+            FROM member_watchhistory";
+            $result = execute_sql($con, $sql);
+
+    $sql1 = "SELECT MovieTitle
+            FROM movies
+            WHERE Classification LIKE '%$result%'";
+            $result1 = execute_sql($con, $sql1);
     ?>
+    
+
+
     <div class="container" style="padding-top:110px;">
         <div class="col-sm-9">
             <div class="bs-calltoaction bs-calltoaction-default">
                 <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
-                        
+                        <?php
+                            echo $result;
+                        ?>
                         </div>
                     </div>
                     <div class="col-md-3 cta-button">

@@ -116,6 +116,11 @@
                     </div>
                 </div>
                 <a class="btn btn-outline-dark btn-sm" role="button" href="電影播放.php">Watch Now</a>
+                <?php
+                    $title = $row['MovieTitle'];
+                    $queryWH = "INSERT INTO member_watchhistory VALUES ('$title', 'YuHsuan')";
+                    $resultWH = execute_sql($con, $queryWH);
+                ?>
             </div>
             <br><br>
             <!-- 評論 -->
