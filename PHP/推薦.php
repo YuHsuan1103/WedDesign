@@ -46,71 +46,76 @@
         </ul>
     </nav>
     <!------- 搜尋結果 ----------->
-
+    
     <?php
+    
     require_once('connect.php');
     session_start();
     checksession();
     header("Content-Type: text/html; charset=utf8");
     $con = create_connection();
 
-    $sql = "SELECT WatchHistory
-            FROM member_watchhistory";
-            $result = execute_sql($con, $sql);
-
-    $sql1 = "SELECT MovieTitle
+    $sql = "SELECT MovieTitle, Classification, Introduction, Cover
             FROM movies
-            WHERE Classification LIKE '%$result%'";
-            $result1 = execute_sql($con, $sql1);
+            WHERE Classification IN (SELECT Classification
+                                    FROM member_watchhistory,movies
+                                    WHERE  WatchHistory = MovieTitle) ORDER BY Classification DESC ";   
+            $result = execute_sql($con, $sql);
     ?>
     
-
-
-    <div class="container" style="padding-top:110px;">
+    <br><br><br><br><br>
+    <h2 style="padding-left: 200px;"><b>為您推薦</b></h2><br>
+    <div class="container">
         <div class="col-sm-9">
-            <div class="bs-calltoaction bs-calltoaction-default">
-                <div class="row">
-                    <div class="col-md-6 cta-contents">
-                        <div class="cta-desc">
-                        <?php
-                            echo $result;
-                        ?>
+            <?php
+            $count = 0;
+            while($row = mysqli_fetch_assoc($result)){
+                if($count % 2 != 0){
+                    echo
+                    "<div class=\"bs-calltoaction bs-calltoaction-primary\">
+                        <div class=\"row\">
+                            <div class=\"col-md-6 cta-contents\">
+                                <div class=\"cta-desc\">";
+                                    $moviename = $row['MovieTitle'];
+                                    printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
+                                    printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
+                                    $temp = "data:image/jpeg;base64,".$row['Cover'];
+                                
+                                echo
+                                "</div>
+                            </div>
+                            <div class=\"col-md-3 cta-button\">
+                                <img src=\""; echo $temp; echo "\" alt=\"\" style = \"weight: 250px; height: 250px;\">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 cta-button">
-                  
-                    </div>
-                </div>
-            </div>
-            <!--  第二項搜尋  -->
-            <div class="bs-calltoaction bs-calltoaction-primary">
-            <div class="row">
-                    <div class="col-md-6 cta-contents">
-                        <div class="cta-desc">
-                        
+                    </div>";
+                }
+                else{
+                    echo
+                    "<div class=\"bs-calltoaction bs-calltoaction-default\">
+                        <div class=\"row\">
+                            <div class=\"col-md-6 cta-contents\">
+                                <div class=\"cta-desc\">";
+                                    $moviename = $row['MovieTitle'];
+                                    printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
+                                    printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
+                                    $temp = "data:image/jpeg;base64,".$row['Cover'];
+                                
+                                echo
+                                "</div>
+                            </div>
+                            <div class=\"col-md-3 cta-button\">
+                                <img src=\""; echo $temp; echo "\" alt=\"\" style = \"weight: 250px; height: 250px;\">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 cta-button">
-                    
-                    </div>
-                </div>
-            </div>
-            <!-- 搜尋結果3 -->
-            <div class="bs-calltoaction bs-calltoaction-info">
-            <div class="row">
-                    <div class="col-md-6 cta-contents">
-                        <div class="cta-desc">
-                        
-                        </div>
-                    </div>
-                    <div class="col-md-3 cta-button">
-                   
-                    </div>
-                </div>
-            </div>
+                    </div>";
+                }
+                $count ++;
+            }
+            ?>
         </div>
     </div>
-
+    
 </body>
 
 </html>

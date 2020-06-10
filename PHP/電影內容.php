@@ -45,6 +45,7 @@
             </li>
         </ul>
     </nav>
+
     <?php
     require_once('connect.php');
     session_start();
@@ -66,6 +67,7 @@
     $resultD = execute_sql($con, $sql_D);
     $temp;
     ?>
+
     <div class="container">
         <div class="col-sm-9">
             <div class="bs-calltoaction bs-calltoaction-default">
@@ -118,7 +120,7 @@
                 <a class="btn btn-outline-dark btn-sm" role="button" href="電影播放.php">Watch Now</a>
                 <?php
                     $title = $row['MovieTitle'];
-                    $queryWH = "INSERT INTO member_watchhistory VALUES ('$title', 'YuHsuan')";
+                    $queryWH = "INSERT INTO member_watchhistory VALUES ('$title', '$_SESSION[user]')";
                     $resultWH = execute_sql($con, $queryWH);
                 ?>
             </div>
