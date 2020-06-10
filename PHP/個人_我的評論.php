@@ -111,50 +111,60 @@
     <!-- sidebar-content  -->
     
   </nav>
+    <?php
+        $sql = "SELECT Title, content
+            FROM comment
+            WHERE M_Account = '$_SESSION[user]'";
+        $result = execute_sql($con, $sql);
+        $temp;
+    ?>
+  </nav>
         <!-- sidebar-wrapper  -->
-        <main class="page-content" style="padding-top: 75px;">
+    <main class="page-content" style="padding-top: 75px;">
         <div class="container-fluid">
         <h2>我的評論</h2>
-      <hr style="background-color: rgb(182, 181, 181);">
+        <hr style="background-color: rgb(182, 181, 181);">
         <div class="col-sm-9">
-            <div class="bs-calltoaction bs-calltoaction-default">
-                <div class="row">
-                    <div class="col-md-6 cta-contents">
-                        <div class="cta-desc">
-                        
+        <?php
+        $count = 0;
+        while($row = mysqli_fetch_assoc($result)){
+            if($count % 2 != 0){
+                echo
+                "<div class=\"bs-calltoaction bs-calltoaction-primary\">
+                    <div class=\"row\">
+                        <div class=\"col-md-6 cta-contents\">
+                            <div class=\"cta-desc\">";
+                                printf("<h4 class=\"cta-title\"><b>%s</b></h4><br>", $row['Title']);
+                                printf("<p>%s</p>",$row['content']);
+                            echo
+                            "</div>
+                        </div>
+                        <div class=\"col-md-3 cta-button\">
+                            <a class=\"btn btn-outline-dark btn-sm\" role=\"button\" href=\"#\">修改</a>
                         </div>
                     </div>
-                    <div class="col-md-3 cta-button">
-                   
-
-                    </div>
-                </div>
-            </div>
-            <!--  第二項搜尋  -->
-            <div class="bs-calltoaction bs-calltoaction-primary">
-            <div class="row">
-                    <div class="col-md-6 cta-contents">
-                        <div class="cta-desc">
-                        
+                </div>";
+            }
+            else{
+                echo
+                "<div class=\"bs-calltoaction bs-calltoaction-default\">
+                    <div class=\"row\">
+                        <div class=\"col-md-6 cta-contents\">
+                            <div class=\"cta-desc\">";
+                                printf("<h4 class=\"cta-title\"><b>%s</b></h4><br>", $row['Title']);
+                                printf("<p>%s</p>",$row['content']);
+                            echo
+                            "</div>
+                        </div>
+                        <div class=\"col-md-3 cta-button\">
+                            <a class=\"btn btn-outline-dark btn-sm\" role=\"button\" href=\"#\">修改</a>
                         </div>
                     </div>
-                    <div class="col-md-3 cta-button">
-                    
-                    </div>
-                </div>
-            </div>
-            <!-- 搜尋結果3 -->
-            <div class="bs-calltoaction bs-calltoaction-info">
-            <div class="row">
-                    <div class="col-md-6 cta-contents">
-                        <div class="cta-desc">
-                        
-                        </div>
-                    </div>
-                    <div class="col-md-3 cta-button">
-                   
-                    </div>
-                </div>
+                </div>";
+            }
+            $count ++;
+        }
+        ?>
             </div>
         </div>
         </main>

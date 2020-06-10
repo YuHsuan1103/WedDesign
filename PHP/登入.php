@@ -2,13 +2,13 @@
 require_once('connect.php');
 header("Content-Type: text/html; charset=utf8");
 $con = create_connection(); 
-$name = $_POST['username'];//post獲得使用者名稱錶單值
-$passowrd = $_POST['password'];//post獲得使用者密碼單值
-if ($name && $passowrd){//如果使用者名稱和密碼都不為空
+$name = $_POST['username'];
+$passowrd = $_POST['password'];
+if ($name && $passowrd){    //如果使用者名稱和密碼都不為空
     $sql = "SELECT * FROM member WHERE M_Account = '$name' AND Password='$passowrd'";
-    $result = mysqli_query($con, $sql);//執行sql
-    $rows = mysqli_num_rows($result);//返回一個數值
-    if($rows){//0 false 1 true
+    $result = mysqli_query($con, $sql);
+    $rows = mysqli_num_rows($result);
+    if($rows){
         $row = mysqli_fetch_array($result, MYSQLI_NUM);
         session_start();
         $_SESSION['user'] = $name;

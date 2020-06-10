@@ -110,7 +110,7 @@
     </div>
     <!-- sidebar-content  -->
     <?php
-        $sql = "SELECT MovieTitle, Cover
+        $sql = "SELECT MovieTitle, Classification, Cover 
             FROM movies, member_watchhistory
             WHERE M_Account = '$_SESSION[user]'
                 AND WatchHistory = MovieTitle";
@@ -125,23 +125,49 @@
         <hr style="background-color: rgb(182, 181, 181);">
         <div class="col-sm-9">
         <?php
+        $count = 0;
         while($row = mysqli_fetch_assoc($result)){
-            echo
-            "<div class=\"bs-calltoaction bs-calltoaction-default\">
-                <div class=\"row\">
-                    <div class=\"col-md-6 cta-contents\">
-                        <div class=\"cta-desc\">";
-                            $moviename = $row['MovieTitle'];
-                            printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
-                            $temp = "data:image/jpeg;base64,".$row['Cover'];
-                        echo
-                        "</div>
+            if($count % 2 != 0){
+                echo
+                "<div class=\"bs-calltoaction bs-calltoaction-primary\">
+                    <div class=\"row\">
+                        <div class=\"col-md-6 cta-contents\">
+                            <div class=\"cta-desc\">";
+                                $moviename = $row['MovieTitle'];
+                                printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h4 class=\"cta-title\">%s</h4></a><br>", $row['MovieTitle']);
+                                printf("<p>%s</p>",$row['Classification']);
+                                $temp = "data:image/jpeg;base64,".$row['Cover'];
+                            
+                            echo
+                            "</div>
+                        </div>
+                        <div class=\"col-md-3 cta-button\">
+                            <img src=\""; echo $temp; echo "\" alt=\"\" style = \"weight: 100px; height: 100px;\">
+                        </div>
                     </div>
-                    <div class=\"col-md-3 cta-button\">
-                        <img src=\""; echo $temp; echo "\" alt=\"\" style = \"weight: 150px; height: 150px;\">
+                </div>";
+            }
+            else{
+                echo
+                "<div class=\"bs-calltoaction bs-calltoaction-default\">
+                    <div class=\"row\">
+                        <div class=\"col-md-6 cta-contents\">
+                            <div class=\"cta-desc\">";
+                                $moviename = $row['MovieTitle'];
+                                printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h4 class=\"cta-title\">%s</h4></a><br>", $row['MovieTitle']);
+                                printf("<p>%s</p>",$row['Classification']);
+                                $temp = "data:image/jpeg;base64,".$row['Cover'];
+                            
+                            echo
+                            "</div>
+                        </div>
+                        <div class=\"col-md-3 cta-button\">
+                            <img src=\""; echo $temp; echo "\" alt=\"\" style = \"weight: 100px; height: 100px;\">
+                        </div>
                     </div>
-                </div>
-            </div>";
+                </div>";
+            }
+            $count ++;
         }
         ?>
          </div>
