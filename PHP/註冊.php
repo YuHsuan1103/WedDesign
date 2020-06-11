@@ -24,6 +24,11 @@ mysqli_query($con, $query2);
 if (!$query2){
   die('Error: ' . mysql_error());//如果sql執行失敗輸出錯誤
 } else {
-  echo "註冊成功";//成功輸出註冊成功
+  echo "
+      <script>
+      setTimeout(function(){window.location.href='../HTML/登入.html';},0000);
+      window.alert('註冊成功');
+      </script>";
+        //成功輸出註冊成功
 }
 ?>
