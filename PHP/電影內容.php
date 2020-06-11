@@ -47,6 +47,7 @@
     </nav>
 
     <?php
+
     require_once('connect.php');
     session_start();
     checksession();
@@ -68,15 +69,16 @@
     $temp;
     ?>
 
-    <div class="container">
-        <div class="col-sm-9">
+    <div class="container" style="width:160%; height: 300px; padding-left:30px;margin-left:10%;">
+        <div class="col-sm-10">
             <div class="bs-calltoaction bs-calltoaction-default">
                 <div class="row">
-                    <div class="col-md-6 cta-contents">
+                    <div class="col-md-10 cta-contents">
                         <div class="cta-desc">
                         <strong class="d-inline-block mb-2">
                         <?php
                           if($row = mysqli_fetch_assoc($result)){
+                              
                               printf("<h2 class=\"cta-title\">%s</h2>", $row['MovieTitle']);
                                $temp = "data:image/jpeg;base64,".$row['Cover'];
                             }
@@ -85,7 +87,7 @@
                         <h6 class="mb-0">
                        <?php
                            if($rowC = mysqli_fetch_assoc($resultC)){
-                            printf("<br>Casts : ");
+                            printf("<br><br>Casts : ");
                               printf("%s", $rowC['C_name']);
                           }
                            while($rowC = mysqli_fetch_assoc($resultC)){
@@ -108,13 +110,13 @@
                         <h5 class="mb-0">
                         <?php
 
-                            printf("Genre : %s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
+                            printf("Genre : %s<br><br><br><br>%s",$row['Classification'], $row['Introduction']);
                             $temp = "data:image/jpeg;base64,".$row['Cover'];
             
                         ?>
                     </div>
                     <div class="col-md-3 cta-button">
-                        <img src="<?php echo $temp;?>" alt="" style = "weight: 250px; height: 250px;">
+                        <img src="<?php echo $temp;?>" alt="" style = "weight: 320px; height: 350px;">
                     </div>
                 </div>
                 <a class="btn btn-outline-dark btn-sm" role="button" href="電影播放.php">Watch Now</a>
@@ -125,12 +127,37 @@
                 ?>
             </div>
             <br><br>
+        <?php
+            $sql_comment = "SELECT Grade,Content,M_Account
+                            FROM comment,movies
+                            WHERE Title = MovieTitle";
+            $result_comment = execute_sql($con, $sql_comment);
+        ?>
+        <h2><b>所有評論</b></h2><br>
+        <div style="border-top:4px solid rgba(78, 78, 78, 0.582); height: 15px;width:130%" class="w3-panel"></div>
+        <div style = "margin-left:10px;">
+                <div class="row">
+                    <div class="col-md-10 cta-contents">
+                        <div class="cta-desc">
+                        <strong class="d-inline-block mb-2">
+                        <?php
+                          while($row_comment = mysqli_fetch_assoc($result_comment)){
+                              printf("<h4><b>%s&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;%d</b></h4><br><p>%s</p><br>"
+                              ,$row_comment['M_Account'],$row_comment['Grade'],$row_comment['Content']);
+                              echo"<div style=\"border-top:2px solid rgba(78, 78, 78, 0.582); height: 15px;width:155%\" class=\"w3-panel\"></div>";
+                            }
+                        ?>
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
             <!-- 評論 -->
             <div class="bs-calltoaction bs-calltoaction-default">
                 <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
-            <form action="" method="POST" class="">
+                <form action="" method="POST" class="">
                 <div class="row">
                     <div class="col-md-1" style="font-size: large;">
                         <span style="color: aliceblue;">評分</span>
@@ -165,12 +192,17 @@
                         <input type="submit" value="submit" class="btn float-right login_btn b">
                     </div>
                 </div>
-            </form>
+                </form>
                         </div>
                     </div>
                 </div>
             </div>
-      </div>
+        </div>
+    </div>
+
+    
+
+
 </body>
 
 </html>
