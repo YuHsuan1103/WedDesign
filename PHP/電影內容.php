@@ -81,6 +81,7 @@
                               
                               printf("<h2 class=\"cta-title\">%s</h2>", $row['MovieTitle']);
                                $temp = "data:image/jpeg;base64,".$row['Cover'];
+
                             }
                         ?>
                         </strong>
@@ -129,8 +130,9 @@
             <br><br>
         <?php
             $sql_comment = "SELECT Grade,Content,M_Account
-                            FROM comment,movies
-                            WHERE Title = MovieTitle";
+                            FROM comment
+                            WHERE Title = '$title'";
+                            
             $result_comment = execute_sql($con, $sql_comment);
         ?>
         <h2><b>所有評論</b></h2><br>
