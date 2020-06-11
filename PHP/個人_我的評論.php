@@ -120,10 +120,10 @@
     ?>
   </nav>
         <!-- sidebar-wrapper  -->
-    <main class="page-content" style="padding-top: 75px;">
+        <main class="page-content" style="padding-top: 75px; font-family:Microsoft JhengHei;">
         <div class="container-fluid">
-        <h2>我的評論</h2>
-        <hr style="background-color: rgb(182, 181, 181);">
+        <h2><b>我的評論</b></h2><br>
+        <div style="border-top:4px solid rgba(78, 78, 78, 0.582); height: 15px;width:101%" class="w3-panel"></div>
         <div class="col-sm-9">
         <?php
         $count = 0;

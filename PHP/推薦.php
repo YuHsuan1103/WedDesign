@@ -27,7 +27,6 @@
                 <li class="nav-item active">
                     <a href="../HTML/登入.html" class="nav-link">Sign In </a>
                 </li>
-                
                 <li class="nav-item">
                     <a href="個人訊息.php" class="nav-link">我的首頁 |</a>
                 </li>
@@ -64,7 +63,8 @@
     ?>
     
     <br><br><br><br><br>
-    <h2 style="padding-left: 200px;"><b>為您推薦</b></h2><br>
+    <h2 style="padding-left: 200px; font-family:Microsoft JhengHei;"><b>為您推薦</b></h2>
+    <hr style="width:75%; border-bottom: 1px solid grey;">
     <div class="container">
         <div class="col-sm-9">
             <?php
