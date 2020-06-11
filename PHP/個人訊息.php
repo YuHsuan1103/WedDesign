@@ -13,6 +13,15 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../CSS/個人訊息.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/css.css" />
+    <style>
+        body {
+            background-image: url('../Picture/1.jfif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            font-family: 'Numans', sans-serif;
+        }
+    </style>
 
 </head>
 
@@ -105,7 +114,7 @@
     
   </nav>
   <!-- sidebar-wrapper  -->
-  <main class="page-content" style="padding-top: 75px; font-family:Microsoft JhengHei;">
+  <main class="page-content" style="padding-top: 75px;">
     <div class="container-fluid">
       <h2><b>個人訊息</b></h2><br>
       <div style="border-top:4px solid rgba(78, 78, 78, 0.582); height: 15px;width:101%" class="w3-panel"></div>

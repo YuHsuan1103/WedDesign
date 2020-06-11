@@ -20,6 +20,26 @@
     <link rel="stylesheet" type="text/css" href="../CSS/css.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/個人訊息.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/推薦.css" />
+    <style>
+        .ratings {
+        position: relative;
+        vertical-align: middle;
+        display: inline-block;
+        color: #ddd; /*背景星星顏色*/
+        overflow: hidden;
+        font-size: 20px; /*調整字體大小可放大縮小星星*/
+        text-shadow: 0px 1px 0 #999;
+        }
+        .full_star {
+        /*width: 50%; /*調整寬度可變更星等*/
+        position: absolute;
+        left: 0;
+        top: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #D56A16; /*前景星星顏色*/
+        }
+        </style>
 </head>
 
 <body>
@@ -112,7 +132,7 @@
     
   </nav>
     <?php
-        $sql = "SELECT Title, content
+        $sql = "SELECT Title, content, grade
             FROM comment
             WHERE M_Account = '$_SESSION[user]'";
         $result = execute_sql($con, $sql);
@@ -126,32 +146,19 @@
         <div style="border-top:4px solid rgba(78, 78, 78, 0.582); height: 15px;width:101%" class="w3-panel"></div>
         <div class="col-sm-9">
         <?php
-        $count = 0;
+        $grade = 0;
         while($row = mysqli_fetch_assoc($result)){
-            if($count % 2 != 0){
-                echo
-                "<div class=\"bs-calltoaction bs-calltoaction-primary\">
-                    <div class=\"row\">
-                        <div class=\"col-md-6 cta-contents\">
-                            <div class=\"cta-desc\">";
-                                printf("<h4 class=\"cta-title\"><b>%s</b></h4><br>", $row['Title']);
-                                printf("<p>%s</p>",$row['content']);
-                            echo
-                            "</div>
-                        </div>
-                        <div class=\"col-md-3 cta-button\">
-                            <a class=\"btn btn-outline-dark btn-sm\" role=\"button\" href=\"#\">修改</a>
-                        </div>
-                    </div>
-                </div>";
-            }
-            else{
                 echo
                 "<div class=\"bs-calltoaction bs-calltoaction-default\">
                     <div class=\"row\">
                         <div class=\"col-md-6 cta-contents\">
                             <div class=\"cta-desc\">";
-                                printf("<h4 class=\"cta-title\"><b>%s</b></h4><br>", $row['Title']);
+                                printf("<h4 class=\"cta-title\"><b>%s</b></h4>", $row['Title']);
+                                $grade = $row['grade']*20;
+                                echo "<div class=\"ratings\">
+                                    <div class=\"empty_star\">★★★★★</div>
+                                    <div class=\"full_star\" style = \"width: $grade%;\">★★★★★</div>
+                                </div>";
                                 printf("<p>%s</p>",$row['content']);
                             echo
                             "</div>
@@ -161,8 +168,6 @@
                         </div>
                     </div>
                 </div>";
-            }
-            $count ++;
         }
         ?>
             </div>
