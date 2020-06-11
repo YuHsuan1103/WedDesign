@@ -46,12 +46,12 @@
     </nav>
     <section class="search-sec" style="padding-top:50px;">
         <div class="container">
-            <form action="搜尋結果.php" method="post" novalidate="novalidate">
+            <form action="搜尋結果.php" method="post">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <select required class="form-control search-slt" id="exampleFormControlSelect1" name="select">
+                            <select required="required" class="form-control search-slt" id="exampleFormControlSelect1" name="select">
                                     <option value="" disabled selected hidden>Select</option>
                                     <option value="search">Movie Title</option>
                                     <option value="searchclassification">Classification</option>
@@ -60,7 +60,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <input type="text" class="form-control search-slt" placeholder="輸入關鍵字" name = "search">
+                                <input required="required" type="text" class="form-control search-slt" placeholder="輸入關鍵字" name = "search">
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                 <button type="submit" class="btn btn-danger wrn-btn">Search</button>
