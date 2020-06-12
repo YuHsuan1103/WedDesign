@@ -97,21 +97,6 @@
                 FROM movies
                 WHERE MovieTitle LIKE '%$search%'";
     }
-    elseif($_POST['select'] == "searchclassification"){
-        $sql = "SELECT MovieTitle, Classification, Introduction, Cover
-                FROM movies
-                WHERE classification LIKE '%$search%'";
-    }
-    elseif($_POST['select'] == "searchcharacters"){
-        $sql = "SELECT MovieTitle, Classification, Introduction, Cover
-                FROM movies, `character`
-                WHERE MovieTitle = C_MovieTitle AND C_name LIKE '%$search%'";
-    }
-    elseif($_POST['select'] == "searchdirectors"){
-        $sql = "SELECT m.MovieTitle, m.Classification, m.Introduction, m.Cover
-                FROM director AS d, movies AS m
-                WHERE d.MovieTitle = m.MovieTitle AND d.Dname LIKE '%$search%'";
-    }
     $result = execute_sql($con, $sql);
     $result_insert = execute_sql($con, $sql_insert);
     $temp;
