@@ -78,9 +78,10 @@
                         <strong class="d-inline-block mb-2">
                         <?php
                           if($row = mysqli_fetch_assoc($result)){
-                              
-                              printf("<h2 class=\"cta-title\">%s</h2>", $row['MovieTitle']);
-                               $temp = "data:image/jpeg;base64,".$row['Cover'];
+                            $moviename = $row['MovieTitle'];
+                            $_SESSION['getMovieTitle'] = $moviename;
+                            printf("<h2 class=\"cta-title\">%s</h2>", $row['MovieTitle']);
+                            $temp = "data:image/jpeg;base64,".$row['Cover'];
 
                             }
                         ?>
@@ -159,22 +160,22 @@
                 <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
-                <form action="" method="POST" class="">
+                <form action="./個別評論.php" method="POST">
                 <div class="row">
                     <div class="col-md-1" style="font-size: large;">
                         <span style="color: aliceblue;">評分</span>
                     </div>
                     <div class="col-md-5 btn-group"><span>
                         <div class="abgne-menu-20140101-1">
-                            <input type="radio" id="one" name="grade">
+                            <input type="radio" id="one" name="grade" value = "one">
                             <label for="one">1</label>
-                            <input type="radio" id="two" name="grade">
+                            <input type="radio" id="two" name="grade" value = "two">
                             <label for="two">2</label>
-                            <input type="radio" id="three" name="grade">
+                            <input type="radio" id="three" name="grade" value = "three">
                             <label for="three">3</label>
-                            <input type="radio" id="four" name="grade">
+                            <input type="radio" id="four" name="grade" value = "four">
                             <label for="four">4</label>
-                            <input type="radio" id="five" name="grade">
+                            <input type="radio" id="five" name="grade" value = "five">
                             <label for="five">5</label>
                         </div>
                         </span></div>
@@ -201,10 +202,6 @@
             </div>
         </div>
     </div>
-
-    
-
-
 </body>
 
 </html>
