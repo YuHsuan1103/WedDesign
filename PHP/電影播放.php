@@ -17,15 +17,26 @@
 </head>
 
 <body>
+<?php
+    require_once('connect.php');
+    session_start();
+    checksession();
+    if($_SESSION['user'] == NULL){
+        $sign = "Sign In";
+    }
+    else{
+        $sign = "$_SESSION[user]";
+    }
+    ?>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <a href="../HTML/首頁.html" class="navbar-brand">Projectxx2020</a>
+        <a href="首頁.php" class="navbar-brand">Projectxx2020</a>
         <button class="navbar-toggler" type="button" data-target="#navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a href="../HTML/登入.html" class="nav-link">Sign In </a>
+                    <a href="../HTML/登入.html" class="nav-link"><?php echo $sign;?> </a>
                 </li>
                 
                 <li class="nav-item">
