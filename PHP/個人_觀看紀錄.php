@@ -26,12 +26,6 @@
     require_once('connect.php');
     session_start();
     checksession();
-    if($_SESSION['user'] == NULL){
-        $sign = "Sign In";
-    }
-    else{
-        $sign = "$_SESSION[user]";
-    }
     ?>
     <!----------------------上方選單-------------------------->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -42,7 +36,14 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a href="../HTML/登入.html" class="nav-link"><?php echo $sign;?> </a>
+                <?php
+                    if($_SESSION['user'] == NULL){
+                        echo "<a href=\"../HTML/登入.html\" class=\"nav-link\">Sign In</a>";
+                    }
+                    else{
+                        echo "<a href=\"#\" class=\"nav-link\">Welcome $_SESSION[user]</a>";
+                    }
+                    ?>
                 </li>
                 
                 <li class="nav-item">
