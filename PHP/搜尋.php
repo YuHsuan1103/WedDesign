@@ -34,7 +34,9 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a href="登入.html" class="nav-link"><?php echo $sign;?></a>
+                <?php
+                        echo "<a href=\"#\" class=\"nav-link\">Welcome $_SESSION[user]</a>";
+                    ?>
                 </li>
                 <li class="nav-item">
                     <a href="../PHP/個人訊息.php" class="nav-link">我的首頁 |</a>

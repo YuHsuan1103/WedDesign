@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/css.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/推薦.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/搜尋.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/星星.css" />
 </head>
 
 <body>
@@ -31,19 +32,14 @@
             <ul class="navbar-nav navbar-left">
                 <li class="nav-item active">
                 <?php
-                    if($_SESSION['user'] == NULL){
-                        echo "<a href=\"../HTML/登入.html\" class=\"nav-link\">Sign In</a>";
-                    }
-                    else{
                         echo "<a href=\"#\" class=\"nav-link\">Welcome $_SESSION[user]</a>";
-                    }
                     ?>
                 </li>
                 <li class="nav-item">
                     <a href="個人訊息.php" class="nav-link">我的首頁 |</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="../HTML/搜尋.html" class="nav-link">搜尋 |</a>
+                    <a href="搜尋.php" class="nav-link">搜尋 |</a>
                 </li>
                 <li class="nav-item">
                     <a href="推薦.php" class="nav-link">推薦 |</a>
@@ -107,6 +103,11 @@
         <?php
         $count = 0;
         while($row = mysqli_fetch_assoc($result)){
+            $sql_grade = "SELECT AVG(Grade)
+            FROM comment
+            WHERE Title = '$row[MovieTitle]'";
+            $result_grade = execute_sql($con, $sql_grade);
+            $row_grade = mysqli_fetch_assoc($result_grade);
             if($count % 2 != 0){
                 echo
                 "<div class=\"bs-calltoaction bs-calltoaction-primary\">
@@ -115,6 +116,11 @@
                             <div class=\"cta-desc\">";
                                 $moviename = $row['MovieTitle'];
                                 printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
+                                $grade = $row_grade['AVG(Grade)']*20;
+                                echo "<div class=\"ratings\">
+                                    <div class=\"empty_star\" style=\"font-size:30px;\">★★★★★</div>
+                                    <div class=\"full_star\" style = \"width: $grade%; font-size:30px;\">★★★★★</div>
+                                </div>";
                                 printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
                                 $temp = "data:image/jpeg;base64,".$row['Cover'];
                             
@@ -135,6 +141,11 @@
                             <div class=\"cta-desc\">";
                                 $moviename = $row['MovieTitle'];
                                 printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
+                                $grade = $row_grade['AVG(Grade)']*20;
+                                echo "<div class=\"ratings\">
+                                <div class=\"empty_star\" style=\"font-size:30px;\">★★★★★</div>
+                                <div class=\"full_star\" style = \"width: $grade%; font-size:30px;\">★★★★★</div>
+                                </div>";
                                 printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
                                 $temp = "data:image/jpeg;base64,".$row['Cover'];
                             

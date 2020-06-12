@@ -20,26 +20,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/css.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/個人訊息.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/推薦.css" />
-    <style>
-        .ratings {
-        position: relative;
-        vertical-align: middle;
-        display: inline-block;
-        color: #ddd; /*背景星星顏色*/
-        overflow: hidden;
-        font-size: 20px; /*調整字體大小可放大縮小星星*/
-        text-shadow: 0px 1px 0 #999;
-        }
-        .full_star {
-        /*width: 50%; /*調整寬度可變更星等*/
-        position: absolute;
-        left: 0;
-        top: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        color: #D56A16; /*前景星星顏色*/
-        }
-        </style>
+    <link rel="stylesheet" type="text/css" href="../CSS/星星.css" />
 </head>
 
 <body>
@@ -58,19 +39,14 @@
             <ul class="navbar-nav">
                 <li class="nav-item active">
                 <?php
-                    if($_SESSION['user'] == NULL){
-                        echo "<a href=\"../HTML/登入.html\" class=\"nav-link\">Sign In</a>";
-                    }
-                    else{
-                        echo "<a href=\"#\" class=\"nav-link\">Welcome $_SESSION[user]</a>";
-                    }
-                    ?>
+                    echo "<a href=\"#\" class=\"nav-link\">Welcome $_SESSION[user]</a>";
+                ?>
                 </li>
                 <li class="nav-item">
                     <a href="個人訊息.php" class="nav-link">我的首頁 |</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="../HTML/搜尋.html" class="nav-link">搜尋 |</a>
+                    <a href="搜尋.php" class="nav-link">搜尋 |</a>
                 </li>
                 <li class="nav-item">
                     <a href="推薦.php" class="nav-link">推薦 |</a>

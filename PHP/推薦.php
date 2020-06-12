@@ -31,19 +31,14 @@
             <ul class="navbar-nav">
                 <li class="nav-item active">
                 <?php
-                    if($_SESSION['user'] == NULL){
-                        echo "<a href=\"../HTML/登入.html\" class=\"nav-link\">Sign In</a>";
-                    }
-                    else{
                         echo "<a href=\"#\" class=\"nav-link\">Welcome $_SESSION[user]</a>";
-                    }
                     ?>
                 </li>
                 <li class="nav-item">
                     <a href="個人訊息.php" class="nav-link">我的首頁 |</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="../HTML/搜尋.html" class="nav-link">搜尋 |</a>
+                    <a href="搜尋.php" class="nav-link">搜尋 |</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">推薦 |</a>
