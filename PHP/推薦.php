@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/css.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/推薦.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/搜尋.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/星星.css" />
 </head>
 
 <body>
@@ -73,6 +74,11 @@
             <?php
             $count = 0;
             while($row = mysqli_fetch_assoc($result)){
+                $sql_grade = "SELECT AVG(Grade)
+            FROM comment
+            WHERE Title = '$row[MovieTitle]'";
+            $result_grade = execute_sql($con, $sql_grade);
+            $row_grade = mysqli_fetch_assoc($result_grade);
                 if($count % 2 != 0){
                     echo
                     "<div class=\"bs-calltoaction bs-calltoaction-primary\">
@@ -81,6 +87,11 @@
                                 <div class=\"cta-desc\">";
                                     $moviename = $row['MovieTitle'];
                                     printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
+                                    $grade = $row_grade['AVG(Grade)']*20;
+                                echo "<div class=\"ratings\">
+                                    <div class=\"empty_star\" style=\"font-size:30px;\">★★★★★</div>
+                                    <div class=\"full_star\" style = \"width: $grade%; font-size:30px;\">★★★★★</div>
+                                </div>";
                                     printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
                                     $temp = "data:image/jpeg;base64,".$row['Cover'];
                                 
@@ -101,6 +112,11 @@
                                 <div class=\"cta-desc\">";
                                     $moviename = $row['MovieTitle'];
                                     printf("<a href=\"電影內容.php?movie=$moviename\" style=\"color:black;\"><h2 class=\"cta-title\">%s</h2></a><br>", $row['MovieTitle']);
+                                    $grade = $row_grade['AVG(Grade)']*20;
+                                echo "<div class=\"ratings\">
+                                    <div class=\"empty_star\" style=\"font-size:30px;\">★★★★★</div>
+                                    <div class=\"full_star\" style = \"width: $grade%; font-size:30px;\">★★★★★</div>
+                                </div>";
                                     printf("<p>%s<br><br>%s</p>",$row['Classification'], $row['Introduction']);
                                     $temp = "data:image/jpeg;base64,".$row['Cover'];
                                 
