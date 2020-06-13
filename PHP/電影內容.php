@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/電影內容.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/推薦.css" />
     <link rel="stylesheet" type="text/css" href="../CSS/評論.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/星星.css" />
 </head>
 
 <body>
@@ -148,8 +149,13 @@
                         <strong class="d-inline-block mb-2">
                         <?php
                           while($row_comment = mysqli_fetch_assoc($result_comment)){
-                              printf("<h4><b>%s&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;%d</b></h4><br><p>%s</p><br>"
-                              ,$row_comment['M_Account'],$row_comment['Grade'],$row_comment['Content']);
+                              printf("<h4><b>%s</b>&emsp;&emsp;", $row_comment['M_Account']);
+                              $grade = $row_comment['Grade']*20;
+                                echo "<div class=\"ratings\">
+                                    <div class=\"empty_star\" style=\"font-size:30px;\">★★★★★</div>
+                                    <div class=\"full_star\" style = \"width: $grade%; font-size:30px;\">★★★★★</div>
+                                </div>";
+                                printf("</h4></p><p>%s</p><br>" , $row_comment['Content']);
                               echo"<div style=\"border-top:2px solid rgba(78, 78, 78, 0.582); height: 15px;width:155%\" class=\"w3-panel\"></div>";
                             }
                         ?>
@@ -159,14 +165,14 @@
             </div>
         </div>
             <!-- 評論 -->
-            <div class="bs-calltoaction bs-calltoaction-default">
+            <div class="bs-calltoaction bs-calltoaction-default" style="width:100%; height:500px;">
                 <div class="row">
                     <div class="col-md-6 cta-contents">
                         <div class="cta-desc">
                 <form action="./個別評論.php" method="POST">
                 <div class="row">
                     <div class="col-md-1" style="font-size: large;">
-                        <span style="color: aliceblue;">評分</span>
+                        <span style="color: black;">評分</span>
                     </div>
                     <div class="col-md-5 btn-group"><span>
                         <div class="abgne-menu-20140101-1">
@@ -185,14 +191,13 @@
                 </div>
                 <div class="row">
                     <div class="col-md-1" style="font-size: large;">
-                        <span style="color: aliceblue;">內文</span>
+                        <span style="color: black;">內文</span>
                     </div>
-                    <div class="col-md-11 form-group">
-                        <textarea name="content" id="" style="width: 680px; height: 275px;" class="form-control content" placeholder="content"></textarea>
+                    <div class="col-md-11 form-group" style="padding-right: 75px;">
+                        <textarea name="content" id="" style="height: 275px;" class="form-control content" placeholder="content"></textarea>
                     </div>
-                    
                 </div>
-                <br><br><br>
+                <br><br>
                 <div class="row">
                     <div class="col-md-7 form-group">
                         <input type="submit" value="submit" class="btn float-right login_btn b">

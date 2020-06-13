@@ -17,7 +17,7 @@
 
 .abgne-menu-20140101-1 input[type="radio"] + label {
 	display: inline-block;
-	background-color: #ccc;
+	background-color: rgb(255, 255, 255);
 	cursor: pointer;
     padding: 10px 15px;
     width: 40px;
@@ -33,6 +33,6 @@
 }
 
 .b {
-    background-color: rgb(255, 0, 0);
+    background-color: #fec400;
 	color: rgb(255, 255, 255);
 }
