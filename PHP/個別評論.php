@@ -23,20 +23,12 @@ elseif($_POST['grade'] == "four"){
 elseif($_POST['grade'] == "five"){
     $get_Grade = 5;
 }
-$query = "INSERT INTO comment VALUES ('$movie', '$get_Grade','$get_Content', '$_SESSION[user]')";
-mysqli_query($con, 'SET NAMES utf8'); 
-mysqli_query($con, $query);  
-if ($get_Grade == null || $get_Content == null){
-    echo "
-    <script>
-    window.alert('評論不可空白');
-    setTimeout(function(){window.location.href='../PHP/電影內容.php?movie=$movie';},0000);;
-    </script>";  
-} else {   
+    $query = "INSERT INTO comment VALUES ('$movie', '$get_Grade','$get_Content', '$_SESSION[user]')";
+    mysqli_query($con, 'SET NAMES utf8'); 
+    mysqli_query($con, $query);
     echo "
     <script>
     setTimeout(function(){window.location.href='../PHP/電影內容.php?movie=$movie';},0010);;
-    </script>";  
-}  
+    </script>"; 
 
 ?>

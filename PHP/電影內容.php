@@ -176,7 +176,7 @@
                     </div>
                     <div class="col-md-5 btn-group"><span>
                         <div class="abgne-menu-20140101-1">
-                            <input type="radio" id="one" name="grade" value = "one">
+                            <input required type="radio" id="one" name="grade" value = "one">
                             <label for="one">1</label>
                             <input type="radio" id="two" name="grade" value = "two">
                             <label for="two">2</label>
@@ -194,7 +194,7 @@
                         <span style="color: black;">內文</span>
                     </div>
                     <div class="col-md-11 form-group" style="padding-right: 75px;">
-                        <textarea name="content" id="" style="height: 275px;" class="form-control content" placeholder="content"></textarea>
+                        <textarea required name="content" id="" style="height: 275px;" class="form-control content" placeholder="content"></textarea>
                     </div>
                 </div>
                 <br><br>
