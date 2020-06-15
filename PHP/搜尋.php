@@ -19,6 +19,7 @@
 <?php
     require_once('connect.php');
     session_start();
+    checksession();
     if($_SESSION['user'] == NULL){
         $sign = "Sign In";
     }
@@ -35,7 +36,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item active">
                 <?php
-                        echo "<a href=\"#\" class=\"nav-link\">Welcome $_SESSION[user]</a>";
+                        echo "<a href=\"#\" class=\"nav-link\">$sign</a>";
                     ?>
                 </li>
                 <li class="nav-item">
