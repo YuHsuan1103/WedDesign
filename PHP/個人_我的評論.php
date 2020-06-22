@@ -91,20 +91,20 @@
                 <span>選單</span>
             </li>
             <li>
-                <a href="個人訊息.php">
-                    <i class="far fa-gem"></i>
+                <a href="#">
+                    <i class="fas fa-user"></i>
                     <span>個人訊息</span>
                 </a>
             </li>
             <li>
                 <a href="個人_觀看紀錄.php">
-                    <i class="fa fa-tachometer-alt"></i>
+                    <i class="fa fa-history"></i>
                     <span>觀看紀錄</span>
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="fa fa-shopping-cart"></i>
+                <a href="個人_我的評論.php">
+                    <i class="fa fa-comment"></i>
                     <span>我的評論</span>
                 </a>
             </li>
